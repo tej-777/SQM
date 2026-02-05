@@ -1,0 +1,882 @@
+[
+  {
+    "Name of Hospital": "7 STAR SUPER SPECIALITY HOSPITAL",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "ORTHOPEDIC  SURGERY AND PROCEDURES, POLY TRAUMA",
+    "Address": "20-1-61, main road",
+    "Mitra Contact No": "9281068545",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "AREA HOSPTIAL - TUNI",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Tuni - U",
+    "Specialities": "CRITICAL CARE, DERMATOLOGY, ENT  SURGERY, GENERAL MEDICINE, GENERAL SURGERY, GYNAECOLOGY AND OBSTETRICS  SURGERY, OPHTHALMOLOGY  SURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, PEDIATRICS, POLY TRAUMA, PULMONOLOGY",
+    "Address": "6-7-15AKOTHAPETANEAR RAJAGROUND   533404533401",
+    "Mitra Contact No": "9281068531",
+    "Pincode": "533401"
+  },
+  {
+    "Name of Hospital": "ARUNA HOSPITAL",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "CRITICAL CARE, ENT  SURGERY, GENERAL MEDICINE, GENERAL SURGERY, GENITO URINARY SURGERIES, GYNAECOLOGY AND OBSTETRICS  SURGERY, NEUROLOGY, NEUROSURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, POLY TRAUMA, PULMONOLOGY, SURGICAL GASTRO ENTEROLOGY",
+    "Address": "8-19-145GANDHI PARK STREETNEAR GANDHI PARK ROAD533003",
+    "Mitra Contact No": "9281068602",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "BEST HOSPITAL",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "GENERAL SURGERY, GENITO URINARY SURGERIES, GYNAECOLOGY AND OBSTETRICS  SURGERY, NEUROLOGY, ORTHOPEDIC  SURGERY AND PROCEDURES, PEDIATRIC SURGERIES, PEDIATRICS, PLASTIC SURGERY, POLY TRAUMA",
+    "Address": "10-5-271NAGESWARARAO STREETNEAR SUDHA UROLOGY533004",
+    "Mitra Contact No": "9281068522",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "CHC -JAGGAMPETA",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Jaggampeta - R",
+    "Specialities": "GENERAL MEDICINE, GENERAL SURGERY, GYNAECOLOGY AND OBSTETRICS  SURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, PEDIATRICS",
+    "Address": "7-146GurrampalemroadGurrampalemroad533435",
+    "Mitra Contact No": "9281068414",
+    "Pincode": "533435"
+  },
+  {
+    "Name of Hospital": "CHC -PEDAPUDI",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Pedapudi - R",
+    "Specialities": "GENERAL MEDICINE, GENERAL SURGERY, GYNAECOLOGY AND OBSTETRICS  SURGERY, PEDIATRICS",
+    "Address": "1-138MAINROAD MPDO OFFICE 533006",
+    "Mitra Contact No": "9281068493",
+    "Pincode": "533006"
+  },
+  {
+    "Name of Hospital": "CHC -PEDDAPURAM",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Peddapuram - U",
+    "Specialities": "ENT  SURGERY, GENERAL MEDICINE, GENERAL SURGERY, GYNAECOLOGY AND OBSTETRICS  SURGERY, OPHTHALMOLOGY  SURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, PEDIATRICS",
+    "Address": "NEAR PANDVULU METTA",
+    "Mitra Contact No": "9281068473",
+    "Pincode": "533437"
+  },
+  {
+    "Name of Hospital": "CHC -PITAHAPURAM",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Pithapuram - U",
+    "Specialities": "GENERAL MEDICINE, GENERAL SURGERY, GYNAECOLOGY AND OBSTETRICS  SURGERY, PEDIATRICS",
+    "Address": "1-0Main Road Near Police Station533450",
+    "Mitra Contact No": "9281068501",
+    "Pincode": "533450"
+  },
+  {
+    "Name of Hospital": "CHC -PRATHIPADU",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Prathipadu - R",
+    "Specialities": "ENT  SURGERY, GENERAL MEDICINE, GENERAL SURGERY, GYNAECOLOGY AND OBSTETRICS  SURGERY, OPHTHALMOLOGY  SURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, PEDIATRICS",
+    "Address": "MAIN ROADfire station 522019",
+    "Mitra Contact No": "9281068516",
+    "Pincode": "533470"
+  },
+  {
+    "Name of Hospital": "CHC -ROUTHULAPUDI",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Rowthulapudi - R",
+    "Specialities": "ENT  SURGERY, GENERAL MEDICINE, GENERAL SURGERY, GYNAECOLOGY AND OBSTETRICS  SURGERY, OPHTHALMOLOGY  SURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, PEDIATRICS",
+    "Address": "1-9Kotaveedi Main Road533428",
+    "Mitra Contact No": "9281068599",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "CHC -SAMALKOT",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "SAMALKOT - R",
+    "Specialities": "GENERAL MEDICINE, GENERAL SURGERY, GYNAECOLOGY AND OBSTETRICS  SURGERY, PEDIATRICS",
+    "Address": "MEHARA COMPLEX ROADMEHARA COMPLEX 533440",
+    "Mitra Contact No": "9281068598",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "CHC -TALLAREVU",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "TALLAREVU - R",
+    "Specialities": "GENERAL MEDICINE, GENERAL SURGERY, GYNAECOLOGY AND OBSTETRICS  SURGERY, PEDIATRICS",
+    "Address": "2-207SANTA PETA MAIN ROAAD OPPVINAYAKA TEMPLE THALLAREVUVINAYAKA TEMPLE533463",
+    "Mitra Contact No": "9281068613",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "CHC -YELESWARAM",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Yeleswaram - U",
+    "Specialities": "ENT  SURGERY, GENERAL MEDICINE, GENERAL SURGERY, GYNAECOLOGY AND OBSTETRICS  SURGERY, OPHTHALMOLOGY  SURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, PEDIATRICS",
+    "Address": "mainroadmainroad533429",
+    "Mitra Contact No": "9281068424",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "CHRISTIAN MEDICAL CENTRE",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Pithapuram - R",
+    "Specialities": "GENERAL MEDICINE, GENERAL SURGERY, GYNAECOLOGY AND OBSTETRICS  SURGERY, OPHTHALMOLOGY  SURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, PEDIATRICS, POLY TRAUMA",
+    "Address": "D No 1331 Agraharam near Rtc Complexpithapuram kakinada dist",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "CITY HOSPITAL",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "CRITICAL CARE, GENERAL MEDICINE, GENERAL SURGERY, GENITO URINARY SURGERIES, NEPHROLOGY, ORTHOPEDIC  SURGERY AND PROCEDURES, POLY TRAUMA",
+    "Address": "9-57 RamanayyapetaSnehapuri Colony533005",
+    "Mitra Contact No": "9281072928",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "DR BRM CAREWELL HOSPITAL",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "GENERAL SURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, POLY TRAUMA",
+    "Address": "2-6-323near RTC complex100 building centre Kokila restaurant 533003",
+    "Mitra Contact No": "9281068588",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "GOVERNMENT GENERAL HOSPITAL - KAKINADA",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "CARDIAC AND CARDIOTHORACIC SURGERY, CARDIOLOGY, COCHLEAR IMPLANT SURGERY, CRITICAL CARE, DERMATOLOGY, ENDOCRINOLOGY, ENT  SURGERY, EPIDEMIC DISEASE, GASTROENTEROLOGY, GENERAL MEDICINE, GENERAL SURGERY, GENITO URINARY SURGERIES, GYNAECOLOGY AND OBSTETRICS  SURGERY, INFECTIOUS DISEASES, MEDICAL ONCOLOGY, NEPHROLOGY, NEUROLOGY, NEUROSURGERY, OPHTHALMOLOGY  SURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, PEDIATRIC SURGERIES, PEDIATRICS, PLASTIC SURGERY, POLY TRAUMA, PROSTHESES, PSYCHIATRY, PULMONOLOGY, RADIATION ONCOLOGY, RHEUMATOLOGY, SURGICAL GASTRO ENTEROLOGY, SURGICAL ONCOLOGY",
+    "Address": "RR ROADNEAR ZP CENTRE533001",
+    "Mitra Contact No": "9281068556",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "HARITHA HOSPITALS",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "ENT  SURGERY, GENERAL SURGERY, GENITO URINARY SURGERIES, NEPHROLOGY, NEUROSURGERY, OPHTHALMOLOGY  SURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, PEDIATRIC SURGERIES, PLASTIC SURGERY, POLY TRAUMA",
+    "Address": "22-13Ggh roadGgh road533001",
+    "Mitra Contact No": "9281068576",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "INDIAN RED CROSS SOCIETY THALASSEMIA CLINIC",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "GENERAL MEDICINE, PEDIATRICS",
+    "Address": "14471GANDHI NAGARNEAR GANDHI NAGAR533001",
+    "Mitra Contact No": "9281068517",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "INODAYA HOSPITALS A UNIT OF GODAVARTHY NARASIMHA MURTHY HEALTHCARE PVT LTD",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "CARDIAC AND CARDIOTHORACIC SURGERY, CARDIOLOGY, GASTROENTEROLOGY, GENITO URINARY SURGERIES, NEPHROLOGY, ORTHOPEDIC  SURGERY AND PROCEDURES, POLY TRAUMA",
+    "Address": "70-7-711NFCLROADNEAR NAGAMALLI THOTA JUNCTION533005",
+    "Mitra Contact No": "9281068553",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "KAKINADA INSTITUTE OF ONCOLOGY PVT LTD",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "SAMALKOT - R",
+    "Specialities": "GENERAL SURGERY, GENITO URINARY SURGERIES, MEDICAL ONCOLOGY, NEPHROLOGY, ORTHOPEDIC  SURGERY AND PROCEDURES, POLY TRAUMA, RADIATION ONCOLOGY, SURGICAL ONCOLOGY",
+    "Address": "461APAVARA VILLAGEKAKINADA RURAL SAMARLAKOTA MANDAL KAKINADA DIST",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "KARTHIKEYA MULTI SPECIALITY HOSPITAL",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "GANDEPALLI - R",
+    "Specialities": "GENERAL SURGERY, GYNAECOLOGY AND OBSTETRICS  SURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, PEDIATRICS, POLY TRAUMA",
+    "Address": "3-212/2 Neeladrirao peta. Jaggampeta",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "KUSUMA HOSPITALS",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "ENT  SURGERY, GENERAL SURGERY, GENITO URINARY SURGERIES, NEPHROLOGY, ORTHOPEDIC  SURGERY AND PROCEDURES, POLY TRAUMA",
+    "Address": "7-7-54RAMARAO PETANEAR TWO TOWN RAILWAYSTATION533001",
+    "Mitra Contact No": "9281068433",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "LAXMI HOSPITAL",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "GASTROENTEROLOGY, GENERAL SURGERY, GYNAECOLOGY AND OBSTETRICS  SURGERY, NEUROSURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, POLY TRAUMA, SURGICAL GASTRO ENTEROLOGY",
+    "Address": "3-16-207srividya colonyAmbedkar statue center533003",
+    "Mitra Contact No": "9281068581",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "LIFE LINE EMERGENCY NEURO AND TRAUMA HOSPITAL",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "GENERAL SURGERY, GENITO URINARY SURGERIES, NEUROSURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, PEDIATRIC SURGERIES, PEDIATRICS, PLASTIC SURGERY, POLY TRAUMA",
+    "Address": "70-1-313RAMANAYYAPETANEAR NAGAMALLI THOTA JUNCTION533005 KAKINADA",
+    "Mitra Contact No": "9281068487",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "MAMATA MULTI SPECIALITY HOSPITAL",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Tuni - U",
+    "Specialities": "GENERAL SURGERY, GENITO URINARY SURGERIES, GYNAECOLOGY AND OBSTETRICS  SURGERY, NEPHROLOGY, ORTHOPEDIC  SURGERY AND PROCEDURES, PEDIATRICS, POLY TRAUMA",
+    "Address": "DNO 5-17-19 GURRALASALA THOTA STREET KOTHAPETA TUNI",
+    "Mitra Contact No": "-",
+    "Pincode": "533401"
+  },
+  {
+    "Name of Hospital": "MAURYA HOSPITAL A UNIT OF GOWRI SARAYU HEALTH CARE SERVICES",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "CRITICAL CARE, GENERAL MEDICINE, GENERAL SURGERY, GENITO URINARY SURGERIES, NEPHROLOGY, ORTHOPEDIC  SURGERY AND PROCEDURES, POLY TRAUMA",
+    "Address": "1313Santha cheruvucinema hall roadSantha cheruvu533001",
+    "Mitra Contact No": "9281068428",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "MEDICOVER HOSPITALS A UNIT OF SAHRUDAYA HEALTH CARE PVT LTD KAKINADA",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "SAMALKOT - R",
+    "Specialities": "CARDIAC AND CARDIOTHORACIC SURGERY, CARDIOLOGY, CRITICAL CARE, DERMATOLOGY, ENT  SURGERY, GASTROENTEROLOGY, GENERAL MEDICINE, GENERAL SURGERY, GENITO URINARY SURGERIES, GYNAECOLOGY AND OBSTETRICS  SURGERY, INFECTIOUS DISEASES, MEDICAL ONCOLOGY, NEPHROLOGY, NEUROLOGY, NEUROSURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, PEDIATRIC SURGERIES, PEDIATRICS, POLY TRAUMA, PULMONOLOGY, RADIATION ONCOLOGY, SURGICAL GASTRO ENTEROLOGY, SURGICAL ONCOLOGY",
+    "Address": "3-119ADB ROAD ATCHAMPETA533005",
+    "Mitra Contact No": "9281068503",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "NEPHROPLUS (GGH KAKINADA)",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "NEPHROLOGY",
+    "Address": "24-4-58Raja RamMohan Roy streetBalaji cheruvu 533001",
+    "Mitra Contact No": "9281068558",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "PANDURANGA PRAJA VYDYASALA",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Tuni - U",
+    "Specialities": "CRITICAL CARE, ENT  SURGERY, GENERAL MEDICINE, GENERAL SURGERY, GENITO URINARY SURGERIES, GYNAECOLOGY AND OBSTETRICS  SURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, PEDIATRICS, POLY TRAUMA",
+    "Address": "2-17-29Panduranga StreetNear Srirama Theater533401",
+    "Mitra Contact No": "9281068494",
+    "Pincode": "533401"
+  },
+  {
+    "Name of Hospital": "PHC -A.V.NAGARAM",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Thondangi - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "near substation 1-140",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC -CHEBROLU",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Gollaprolu - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "Main road",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC -DUGGUDURU",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kajuluru - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "Duggudurru",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC -GANDEPALLI",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "GANDEPALLI - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "Behind Nandi Statue, Singarampalem Road, Gandepalli Mandal, Kakinada District , AP.",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC -GEDDANAPALLE",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kirlampudi - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "GEDDANAPALLI",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC -GOLLAPALEM",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kajuluru - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "MAIN ROAD",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC -GOLLAPROLU",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Gollaprolu - U",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "NEAR MDO OFFICE",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC -KANDRAKOTA",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Peddapuram - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "Hospital StreetKandrakota 533437",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC -KIRLAMPUDI",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kirlampudi - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "PHC Kirlampudi Near Anjaneya Temple  Prathipadu RoadKirlampudi",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC -KOMARAGIRI",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "U.KOTHAPALLI - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "NEAR GOVT HIGH SCHOOL",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC -KOTANANDURU",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Tuni - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "Main Road Kotananduru Pin-533407",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC -MALLAM",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Pithapuram - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "mallam main road vinayaka temple street pithapuram mandalam",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC -PANDURU",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "SC PETA PANDURU",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC -PEDDADA",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Pedapudi - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "6-801",
+    "Mitra Contact No": "-",
+    "Pincode": "533006"
+  },
+  {
+    "Name of Hospital": "PHC -PEDDIPALEM",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Prathipadu - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "1-15 MAINROAD PEDDIPALEM",
+    "Mitra Contact No": "-",
+    "Pincode": "533470"
+  },
+  {
+    "Name of Hospital": "PHC -PULIMERU",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Peddapuram - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "MAINROADPULIMERU",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC -RACHAPALLI",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Prathipadu - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "Oppsite Panchayati street Rachapalli  533430",
+    "Mitra Contact No": "-",
+    "Pincode": "533470"
+  },
+  {
+    "Name of Hospital": "PHC -RAJAPUDI",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Jaggampeta - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "4222 RAJAPUDI",
+    "Mitra Contact No": "-",
+    "Pincode": "533435"
+  },
+  {
+    "Name of Hospital": "PHC -RAVIKAMPADU",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Thondangi - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "4-60 MAINROAD",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC -SAMPARA",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Pedapudi - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "DNO 5-1591SAMPARA",
+    "Mitra Contact No": "-",
+    "Pincode": "533006"
+  },
+  {
+    "Name of Hospital": "PHC -SANKAVARAM",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Sankhavaram - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "main road  SANKAVARAM",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC -SANTHIASRAMAM",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Prathipadu - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "VOMMANGI ROAD SANTHIASHRAMAM",
+    "Mitra Contact No": "-",
+    "Pincode": "533470"
+  },
+  {
+    "Name of Hospital": "PHC -TETAGUNTA",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Tuni - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "sivalayam streettetaguntaeast godavari",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC -THONDANGI",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Thondangi - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "Hospital Road Thondangi 533408",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC -TURANGI",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "Mahalakshmi Nagar Turangi pin 533016",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC -U.KOTHAPALLI",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "U.KOTHAPALLI - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "DOORNO3-117AVAKATIPPAKOTHAPALLIM UKOTHAPALLIPIN533449",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC -VEERAVARAM",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kirlampudi - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "BESIDE VENU GOPALA SWAMY TEMPL",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC -VELANGI",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Karapa - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "MAIN ROAD VELANGI",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC -VETLAPALEM-",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "SAMALKOT - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "near bethala swamy temple",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC -VIRAVA",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Pithapuram - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "1-98, mainroad, Virava, Pithapuram Mandal, Kakinada District",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC GADIMOGA",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "TALLAREVU - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "PHC GADIMOGA NEAR MPUP ELEMENTRY SCHOOL GADIMOGA TALLREVU MANDAL KAKINADA DISTRICT PIN  533463",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC K PERUMALLAPURAM",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Thondangi - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "Door No.2-210 K.PERUMALLAPURAM THONDANGI MANDAL",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC KARAPA",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Karapa - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "MAIN ROAD,  KARAPA,  OPP. MPDO OFFICE",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC N SURAVARAM",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Tuni - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "PHC N. SURAVARAM",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC P MALLAPURAM",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Sankhavaram - R",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "MAIN ROAD , OPP GTWH SCHOOL , PEDA MALLAPURAM",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "PHC-NAGULAPALLI",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Pithapuram - U",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "Main road",
+    "Mitra Contact No": "-",
+    "Pincode": "533450"
+  },
+  {
+    "Name of Hospital": "PULSE EMERGENCY HOSPITAL",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "GENERAL SURGERY, GENITO URINARY SURGERIES, NEUROSURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, PEDIATRIC SURGERIES, POLY TRAUMA",
+    "Address": "1-15-31Bhanugudi junctionBhanugudi junction533001",
+    "Mitra Contact No": "9281068468",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "RAGHAVA 24 HOURS HOSPITAL",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "CARDIAC AND CARDIOTHORACIC SURGERY, CARDIOLOGY, NEUROSURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, POLY TRAUMA",
+    "Address": "11-11-31PRABHAKAR STREETKAKINADA",
+    "Mitra Contact No": "9281068454",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "RAMYA HOSPITALS",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Agali - R",
+    "Specialities": "ENT  SURGERY, GENERAL SURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, POLY TRAUMA",
+    "Address": "9-11-130 Gandhi nagarGandhi nagar533004",
+    "Mitra Contact No": "9281068512",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "SAFE EMERGENCY HOSPITAL",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "CRITICAL CARE, GENERAL MEDICINE, GENERAL SURGERY, GENITO URINARY SURGERIES, GYNAECOLOGY AND OBSTETRICS  SURGERY, INFECTIOUS DISEASES, ORTHOPEDIC  SURGERY AND PROCEDURES, POLY TRAUMA, PULMONOLOGY",
+    "Address": "2-2-7 USHAPRIYA COMPLEX BHANUGUDI JUNCTION KAKINADA    USHAPRIYA COMPLEX BHANUGUDI JUNCTION   Bhanugudi junction 533003",
+    "Mitra Contact No": "9281068474",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "SAI HEALTH CARE",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "GANDEPALLI - R",
+    "Specialities": "ENT  SURGERY, GENERAL SURGERY, GYNAECOLOGY AND OBSTETRICS  SURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, PEDIATRICS, POLY TRAUMA",
+    "Address": "3-145Z-Ragampeta villageNeeladriraopeta postGanepalli mandalam",
+    "Mitra Contact No": "9281068593",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "SAI SUDHA HOSPITAL",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "DERMATOLOGY, GENERAL SURGERY, GENITO URINARY SURGERIES, NEUROSURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, PLASTIC SURGERY, POLY TRAUMA",
+    "Address": "21-1-24,  Jawahar Street,  Salipeta",
+    "Mitra Contact No": "9281068544",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "SAMUDRA HEALTHCARE ENTERPRISES LTD APOLLO HOSPITAL KAKINADA",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "CARDIAC AND CARDIOTHORACIC SURGERY, CARDIOLOGY, CRITICAL CARE, GASTROENTEROLOGY, GENERAL MEDICINE, GENERAL SURGERY, GENITO URINARY SURGERIES, GYNAECOLOGY AND OBSTETRICS  SURGERY, NEPHROLOGY, NEUROLOGY, NEUROSURGERY, OPHTHALMOLOGY  SURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, POLY TRAUMA, SURGICAL GASTRO ENTEROLOGY",
+    "Address": "37634SURYARAOPETAMAIN ROAD533001",
+    "Mitra Contact No": "9281068526",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "SANJIVI INSTITUTE OF ORTHOPAEDICS AND SUPERSPECIALITIES PVT.LTD",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "CARDIAC AND CARDIOTHORACIC SURGERY, CARDIOLOGY, GENERAL MEDICINE, GENERAL SURGERY, GENITO URINARY SURGERIES, GYNAECOLOGY AND OBSTETRICS  SURGERY, NEPHROLOGY, NEUROLOGY, NEUROSURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, PEDIATRIC SURGERIES, PEDIATRICS, PLASTIC SURGERY, POLY TRAUMA",
+    "Address": "11111RAMARAO PETANEAR NOOKALAMMA TEMPLE533004",
+    "Mitra Contact No": "9281068489",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "SIDDHARTHA HOSPITAL",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "CARDIAC AND CARDIOTHORACIC SURGERY, CARDIOLOGY, GENERAL MEDICINE, GENERAL SURGERY, GENITO URINARY SURGERIES, NEPHROLOGY, NEUROSURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, POLY TRAUMA, PULMONOLOGY",
+    "Address": "siddartha hospital kakinada ph 0884 2368521 KAKINADA-533001",
+    "Mitra Contact No": "9281068533",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "SMT RAJESWARI RAMAKRISHNAN LIONS EYE HOSPITAL",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "GANDEPALLI - R",
+    "Specialities": "OPHTHALMOLOGY  SURGERY",
+    "Address": "D No 5111 Gokavaram Road Neladriraopeta Jaggampeta",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "SRI AKSHARA HOSPITALS",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "CRITICAL CARE, ENT  SURGERY, GASTROENTEROLOGY, GENERAL MEDICINE, GENERAL SURGERY, GENITO URINARY SURGERIES, GYNAECOLOGY AND OBSTETRICS  SURGERY, INFECTIOUS DISEASES, NEPHROLOGY, NEUROLOGY, NEUROSURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, PEDIATRIC SURGERIES, PEDIATRICS, PLASTIC SURGERY, POLY TRAUMA, PULMONOLOGY, SURGICAL GASTRO ENTEROLOGY",
+    "Address": "38177RamaraopetaRamaraopeta533001",
+    "Mitra Contact No": "9281068551",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "SRI KIRAN INSTITUTE OF OPHTHALMOLOGY",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - R",
+    "Specialities": "OPHTHALMOLOGY  SURGERY",
+    "Address": "5-1501Penumarthy RoadAchampeta junction 533005 Kakinada",
+    "Mitra Contact No": "9281068570",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "SRI LALITHA HOSPITALS INSITUTE OF LAPAROSCOPIC SURGERY AND TRAINING",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "GENERAL SURGERY, SURGICAL GASTRO ENTEROLOGY",
+    "Address": "13-3-23CINEMA ROADMUNICIPAL OFFICE533001",
+    "Mitra Contact No": "9281068592",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "SUDHA UROLOGY AND ANDROLOGY HOSPITAL",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "GENERAL SURGERY, GENITO URINARY SURGERIES, ORTHOPEDIC  SURGERY AND PROCEDURES, POLY TRAUMA",
+    "Address": "10-5-8",
+    "Mitra Contact No": "9281068471",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "SUNRISE HOSPITALS A UNIT OF SANKHYA AND SRINIDHI HOSPITALS PVT LTD",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "CRITICAL CARE, GENERAL MEDICINE, GENERAL SURGERY, GENITO URINARY SURGERIES, GYNAECOLOGY AND OBSTETRICS  SURGERY, NEUROSURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, PLASTIC SURGERY, POLY TRAUMA, PULMONOLOGY",
+    "Address": "2-27-15Gokul StreetBhanugudi JunctionSrinagara520002",
+    "Mitra Contact No": "9281068498",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "SURYA GLOBAL MULTI SPECIALITY HOSPITALS AND CANCER RESEARCH CENTRE",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "SAMALKOT - R",
+    "Specialities": "CARDIAC AND CARDIOTHORACIC SURGERY, CARDIOLOGY, CRITICAL CARE, ENT  SURGERY, GASTROENTEROLOGY, GENERAL MEDICINE, GENERAL SURGERY, GENITO URINARY SURGERIES, GYNAECOLOGY AND OBSTETRICS  SURGERY, MEDICAL ONCOLOGY, NEPHROLOGY, NEUROSURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, PEDIATRIC SURGERIES, POLY TRAUMA, RADIATION ONCOLOGY, SURGICAL ONCOLOGY",
+    "Address": "1-279sarpavaram roadRailwaycrossing Madhavapatnam533006",
+    "Mitra Contact No": "9281068518",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "TRUST HOSPITAL A UNIT OF SARVOTTAM HEALTH CARE PVT LTD",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "CARDIAC AND CARDIOTHORACIC SURGERY, CARDIOLOGY, CRITICAL CARE, ENT  SURGERY, GASTROENTEROLOGY, GENERAL MEDICINE, GENERAL SURGERY, GENITO URINARY SURGERIES, NEPHROLOGY, NEUROSURGERY, ORTHOPEDIC  SURGERY AND PROCEDURES, PLASTIC SURGERY, POLY TRAUMA, SURGICAL GASTRO ENTEROLOGY",
+    "Address": "3-29Lalitha NagarGaigolupadu RoadSarpavaram Junction533005 PAVARAM JUNCTION, NEAR NTR STATUE 533005",
+    "Mitra Contact No": "9281068443",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "TRUST MULTISPECIALITY HOSPITALS A UNIT OF SARVOTTAM HEALTH CARE PVT LTD",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - R",
+    "Specialities": "CARDIAC AND CARDIOTHORACIC SURGERY, CARDIOLOGY, CRITICAL CARE, GENERAL SURGERY",
+    "Address": "D NO 11-427,  SARPAVARAM ROAD, RAMANAYYAPETA,  KAKINADA",
+    "Mitra Contact No": "-",
+    "Pincode": "N/A"
+  },
+  {
+    "Name of Hospital": "UPHC MANGAYAMMARAOPETA",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Pithapuram - U",
+    "Specialities": "GYNAECOLOGY AND OBSTETRICS  SURGERY",
+    "Address": "OPP AKPM SCHOOL ,  BISIDE SACHIVALAYAM",
+    "Mitra Contact No": "-",
+    "Pincode": "533450"
+  },
+  {
+    "Name of Hospital": "VASAN EYE CARE HOSPITAL A UNIT OF VASAN HEALTH CARE PRIVATE LTD",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "OPHTHALMOLOGY  SURGERY",
+    "Address": "DR NO 6137 NUKALAMMA TEMPLE STREET RAMARAO PET KAKINADA ANDHRA PRADESH",
+    "Mitra Contact No": "-",
+    "Pincode": "533001"
+  },
+  {
+    "Name of Hospital": "YASHVEDH HEALTHCARE SERVICES",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Prathipadu - R",
+    "Specialities": "OPHTHALMOLOGY  SURGERY",
+    "Address": "519/1,  High School Road ,  Dharmavaram",
+    "Mitra Contact No": "-",
+    "Pincode": "533470"
+  },
+  {
+    "Name of Hospital": "YASHVEDHHEALTHCARESERVICES",
+    "State": "ANDHRA PRADESH",
+    "District": "KAKINADA",
+    "Mandal": "Kakinada - U",
+    "Specialities": "OPHTHALMOLOGY  SURGERY",
+    "Address": "69-18-21 Gaigolapadu junctionGaigolapadu junction533005",
+    "Mitra Contact No": "9281068527",
+    "Pincode": "533001"
+  }
+]

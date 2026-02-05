@@ -1,0 +1,33 @@
+{
+  "name": "smartqueue-fullstack",
+  "version": "1.0.0",
+  "description": "SmartQueue - Hospital Queue Management System with Verification",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && python flask_backend.py",
+    "build": "cd frontend && npm run build",
+    "preview": "cd frontend && npm run preview",
+    "install:frontend": "cd frontend && npm install",
+    "install:backend": "cd backend && pip install -r requirements-flask.txt",
+    "install:all": "npm run install:frontend && npm run install:backend"
+  },
+  "keywords": [
+    "hospital",
+    "queue-management",
+    "verification",
+    "react",
+    "flask",
+    "smartqueue"
+  ],
+  "author": "SmartQueue Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "python": ">=3.8.0"
+  }
+}
