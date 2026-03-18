@@ -1,0 +1,63 @@
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.security import HTTPBearer
+from app.database import engine, Base
+import os
+
+
+# Import all models to register them with SQLAlchemy
+from app.models import hospital, service, hospital_service, service_availability, appointment
+
+# Import API routers
+from app.api import hospital, appointment, queue, patient_queue, dashboard, public_hospital, patient, auth, websocket, services, hospital_services, availability, booking
+
+# Create database tables
+Base.metadata.create_all(bind=engine)
+
+# Create FastAPI application
+app = FastAPI(
+    title="SmartQueue API",
+    description="Hospital Queue Management System",
+    version="1.0.0",
+    security=[{"Bearer": []}]
+)
+
+# Configure CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:3000", 
+        "http://127.0.0.1:3000", 
+        "http://localhost:5173", 
+        "http://127.0.0.1:5173",
+        "http://localhost:5174",
+        "http://127.0.0.1:5174",
+        "*"  # Allow all origins for development
+    ],
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allow_headers=["*"],
+)
+
+# Include routers
+app.include_router(hospital.router)
+app.include_router(appointment.router)
+app.include_router(queue.router)
+app.include_router(patient_queue.router)
+app.include_router(dashboard.router)
+app.include_router(public_hospital.router)
+app.include_router(patient.router)
+app.include_router(auth.router)
+app.include_router(services.router)
+app.include_router(hospital_services.router)
+app.include_router(availability.router)
+app.include_router(booking.router)
+app.include_router(websocket.router, prefix="/ws")
+
+@app.get("/")
+async def root():
+    return {"message": "SmartQueue API is running"}
+
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy"}
