@@ -34,7 +34,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <span className="inline-block px-4 py-2 bg-blue-100 text-blue-700 text-sm font-semibold rounded-full">
-              🏥 Smart Hospital Queue Management
+              🏥 TREFIX - Smart Queue System
             </span>
           </motion.div>
           

@@ -32,8 +32,12 @@ const Footer = () => {
                 </svg>
               </div>
               <div>
-                <span className="text-2xl font-bold">SmartQueue</span>
-                <p className="text-sm text-gray-400">Hospital Queue Management</p>
+                <div className="flex items-center gap-2">
+                  <span className="text-2xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+                    TREFIX
+                  </span>
+                </div>
+                <p className="text-sm text-gray-400">Smart Queue System</p>
               </div>
             </div>
             <p className="text-gray-400 text-center lg:text-left max-w-md">
@@ -85,7 +89,7 @@ const Footer = () => {
             </div>
             <div className="text-center lg:text-right">
               <p className="text-gray-500 text-xs">
-                © 2026 SmartQueue. All rights reserved.
+                © 2026 TREFIX. All rights reserved.
               </p>
               <p className="text-gray-600 text-xs mt-1">
                 Built with ❤️ for better healthcare

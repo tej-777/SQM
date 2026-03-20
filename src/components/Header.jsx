@@ -18,12 +18,14 @@ const Header = ({ showNavigation = true, showActions = true, customActions = nul
 
         {/* Brand */}
         <div className="leading-tight">
-          <h1 className="text-lg sm:text-xl font-bold text-blue-700">
-            SmartQueue
-          </h1>
-          <p className="text-xs sm:text-sm text-gray-500">
-            Hospital Queue System
-          </p>
+          <div className="flex items-center gap-2">
+            <span className="text-xl md:text-2xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+              TREFIX
+            </span>
+            <span className="hidden md:block text-xs text-gray-400">
+              Smart Queue System
+            </span>
+          </div>
         </div>
 
         {/* Navigation Links - Desktop */}

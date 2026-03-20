@@ -338,7 +338,7 @@ const HospitalRegistration = () => {
                   </svg>
                 </div>
                 <h1 className="text-2xl font-bold mb-2">Hospital Registration</h1>
-                <p className="text-blue-100 text-sm">Register your hospital with SmartQueue</p>
+                <p className="text-blue-100 text-sm">Register your hospital with TREFIX</p>
               </motion.div>
             </div>
 
