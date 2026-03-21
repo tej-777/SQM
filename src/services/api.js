@@ -1,11 +1,11 @@
-import { VITE_API_BASE_URL } from '../config.js';
+import { API_BASE_URL } from '../config.js';
 
 // Helper function to get auth token from localStorage
 export const getAuthToken = () => localStorage.getItem("token");
 
 // Generic request handler
 async function request(endpoint, options = {}) {
-  const response = await fetch(`${VITE_API_BASE_URL}${endpoint}`, {
+  const response = await fetch(`${API_BASE_URL}${endpoint}`, {
     headers: {
       "Content-Type": "application/json",
       ...options.headers,
@@ -29,11 +29,15 @@ export const publicApi = {
 
 // Authentication API
 export const authApi = {
-  login: (data) =>
-    request("/auth/login", {
+  login: (data) => {
+    const formData = new URLSearchParams();
+    formData.append("username", data.username);
+    formData.append("password", data.password);
+    return fetch(`${API_BASE_URL}/auth/login`, {
       method: "POST",
-      body: JSON.stringify(data),
-    }),
+      body: formData,
+    }).then(res => res.json());
+  },
 };
 
 // Staff APIs (Protected)
