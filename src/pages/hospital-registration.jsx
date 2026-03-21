@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
-
-const API_BASE = "http://localhost:8000";
+import { API_BASE_URL } from '../config.js';
 
 const HospitalRegistration = () => {
   const navigate = useNavigate();
@@ -50,7 +49,7 @@ const HospitalRegistration = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await fetch(`${API_BASE}/services/`);
+        const response = await fetch(`${API_BASE_URL}/services/`);
         if (response.ok) {
           const services = await response.json();
           setAvailableServices(services);
@@ -228,7 +227,7 @@ const HospitalRegistration = () => {
         services: formData.services
       };
 
-      const response = await fetch(`${API_BASE}/auth/register-hospital`, {
+      const response = await fetch(`${API_BASE_URL}/auth/register-hospital`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

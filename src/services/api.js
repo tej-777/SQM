@@ -5,7 +5,17 @@ export const getAuthToken = () => localStorage.getItem("token");
 
 // Generic request handler
 async function request(endpoint, options = {}) {
-  const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+  const fullUrl = `${API_BASE_URL}${endpoint}`;
+  
+  // Debug logging
+  console.log('🚀 API Request:', {
+    method: options.method || 'GET',
+    url: fullUrl,
+    headers: options.headers,
+    body: options.body ? '[DATA]' : 'none'
+  });
+
+  const response = await fetch(fullUrl, {
     headers: {
       "Content-Type": "application/json",
       ...options.headers,
@@ -13,12 +23,23 @@ async function request(endpoint, options = {}) {
     ...options,
   });
 
+  // Debug response
+  console.log('📡 API Response:', {
+    status: response.status,
+    statusText: response.statusText,
+    url: response.url,
+    ok: response.ok
+  });
+
   if (!response.ok) {
-    const error = await response.json();
+    const error = await response.json().catch(() => ({ detail: "Unknown error" }));
+    console.error('❌ API Error:', error);
     throw new Error(error.detail || "Something went wrong");
   }
 
-  return response.json();
+  const data = await response.json();
+  console.log('✅ API Success:', data);
+  return data;
 }
 
 // Public APIs
