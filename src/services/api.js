@@ -1,11 +1,11 @@
-import { API_BASE_URL } from '../config.js';
+import { VITE_API_BASE_URL } from '../config.js';
 
 // Helper function to get auth token from localStorage
 export const getAuthToken = () => localStorage.getItem("token");
 
 // Generic request handler
 async function request(endpoint, options = {}) {
-  const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+  const response = await fetch(`${VITE_API_BASE_URL}${endpoint}`, {
     headers: {
       "Content-Type": "application/json",
       ...options.headers,
