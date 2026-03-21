@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, dateFns } from 'react-calendar';
+import { API_BASE_URL } from '../config.js';
 
 const QueueSection = ({ hospitalServices, appointmentDate }) => {
   const [queueData, setQueueData] = useState([]);
@@ -275,73 +276,12 @@ useEffect(() => {
             >
               📅 Month View
             </button>
-      const handleMonthChange = (direction) => {
-        setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + (direction === 'next' ? 1 : -1), 1));
-      };
-      
-      return (
-        <div className="bg-white rounded-lg p-4 border border-gray-200">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-4">
-              <label htmlFor="date-picker" className="text-sm font-medium text-gray-700">
-                Select Date:
-              </label>
-              <input
-                id="date-picker"
-                type="date"
-                value={selectedDate}
-                onChange={(e) => onDateChange(e.target.value)}
-                className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                max={new Date().toISOString().split('T')[0]}
-              />
-              <button
-                onClick={() => setShowMonthSelector(!showMonthSelector)}
-                className="px-3 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm"
-              >
-                📅 Month View
-              </button>
-            </div>
-            <div className="text-sm text-gray-600 mb-4">
-              Showing appointments for: <span className="font-medium">{new Date(selectedDate).toLocaleDateString()}</span>
-            </div>
           </div>
-          
-          {showMonthSelector && (
-            <div className="mt-4 border-t border-gray-200 pt-4">
-              <div className="flex items-center justify-between mb-4">
-                <button
-                  onClick={() => handleMonthChange('previous')}
-                  className="px-3 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg text-sm"
-                >
-                  ← Previous Month
-                </button>
-                <h3 className="text-lg font-semibold">
-                  {currentMonth.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
-                </h3>
-                <button
-                  onClick={() => handleMonthChange('next')}
-                  className="px-3 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg text-sm"
-                >
-                  Next Month →
-                </button>
-              </div>
-              
-              <div className="grid grid-cols-7 gap-2 mb-4">
-                {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
-                  <div key={day} className="text-center p-2 rounded-lg border">
-                    <div className="text-xs font-medium text-gray-600 mb-1">{day}</div>
-                    <div className="text-sm">
-                      {new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1).toLocaleDateString()}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
-      );
-    };
-    
+      </div>
+    );
+  };
+
   return (
     <motion.div className="bg-white rounded-xl shadow-lg p-6">
       <div className="mb-6">

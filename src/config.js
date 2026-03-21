@@ -3,3 +3,4 @@ export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://sqm-8v
 
 console.log('🌐 API Base URL:', API_BASE_URL);
 console.log('🔍 Environment Variable:', import.meta.env.VITE_API_BASE_URL);
+console.log("API_BASE_URL:", API_BASE_URL); // Debug log as requested

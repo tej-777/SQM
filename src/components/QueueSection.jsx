@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { API_BASE_URL } from '../config.js';
 
 const QueueSection = ({ hospitalServices, appointmentDate }) => {
   const [queueData, setQueueData] = useState([]);
