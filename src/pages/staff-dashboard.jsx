@@ -71,9 +71,12 @@ const StaffDashboard = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem("token");
+      console.log("Token in localStorage:", localStorage.getItem("token"));
       const response = await fetch(`${API_BASE_URL}/auth/me`, {
+        method: "GET",
         headers: {
-          'Authorization': `Bearer ${token}`
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
         }
       });
       

@@ -29,15 +29,11 @@ export const publicApi = {
 
 // Authentication API
 export const authApi = {
-  login: (data) => {
-    const formData = new URLSearchParams();
-    formData.append("username", data.username);
-    formData.append("password", data.password);
-    return fetch(`${API_BASE_URL}/auth/login`, {
+  login: (data) =>
+    request("/auth/login", {
       method: "POST",
-      body: formData,
-    }).then(res => res.json());
-  },
+      body: JSON.stringify(data),
+    }),
 };
 
 // Staff APIs (Protected)

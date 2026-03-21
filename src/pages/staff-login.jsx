@@ -25,15 +25,28 @@ const StaffLogin = () => {
         password: password,
       });
 
-      // Save token and user data to localStorage for persistence
-      localStorage.setItem("token", response.access_token);
-      localStorage.setItem("staff_user", JSON.stringify(response.user));
-      
-      // Update AuthContext
-      login(response.access_token);
-      
-      navigate("/staff-dashboard");
+      console.log("Full login response:", response);
+
+      // Check if response has access_token
+      if (response.access_token) {
+        // Save token and user data to localStorage for persistence
+        localStorage.setItem("token", response.access_token);
+        localStorage.setItem("staff_user", JSON.stringify(response.user || response));
+        
+        // Debug: Confirm token is saved
+        console.log("Token saved to localStorage:", localStorage.getItem("token"));
+        console.log("User data saved:", localStorage.getItem("staff_user"));
+        
+        // Update AuthContext
+        login(response.access_token);
+        
+        navigate("/staff-dashboard");
+      } else {
+        console.error("No access_token in response:", response);
+        setError("Login failed: No token received");
+      }
     } catch (err) {
+      console.error("Login error:", err);
       setError(err.message || "Login failed");
     } finally {
       setLoading(false);
