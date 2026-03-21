@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../config.js';
 import AppointmentConfirmation from './AppointmentConfirmation';
 
 const PatientBooking = () => {
@@ -46,7 +47,7 @@ const PatientBooking = () => {
 
   const fetchHospitals = async () => {
     try {
-      const response = await fetch('http://localhost:8000/public/hospitals');
+      const response = await fetch(`${API_BASE_URL}/public/hospitals`);
       if (response.ok) {
         const data = await response.json();
         setHospitals(data);
@@ -64,7 +65,7 @@ const PatientBooking = () => {
   const fetchServices = async () => {
     try {
       console.log('DEBUG: Fetching services for hospital:', selectedHospital);
-      const response = await fetch(`http://localhost:8000/hospital-services/${selectedHospital}`);
+      const response = await fetch(`${API_BASE_URL}/hospital-services/${selectedHospital}`);
       if (response.ok) {
         const data = await response.json();
         console.log('DEBUG: Hospital services response:', data);
@@ -83,7 +84,7 @@ const PatientBooking = () => {
   const fetchAvailableDates = async () => {
     try {
       console.log('DEBUG: Fetching availability for service:', selectedService);
-      const response = await fetch(`http://localhost:8000/appointments/availability/${selectedService}`);
+      const response = await fetch(`${API_BASE_URL}/appointments/availability/${selectedService}`);
       if (response.ok) {
         const data = await response.json();
         console.log('DEBUG: Availability response:', data);
@@ -150,7 +151,7 @@ const PatientBooking = () => {
 
       // First check if availability exists for this service and date
       console.log('DEBUG: Checking availability...');
-      const availabilityResponse = await fetch(`http://localhost:8000/appointments/availability/${hospitalServiceId}`);
+      const availabilityResponse = await fetch(`${API_BASE_URL}/appointments/availability/${hospitalServiceId}`);
       
       if (!availabilityResponse.ok) {
         setError('Failed to check availability');
@@ -192,7 +193,7 @@ const PatientBooking = () => {
       };
       console.log("BOOKING PAYLOAD:", bookingPayload);
 
-      const response = await fetch('http://localhost:8000/appointments/book', {
+      const response = await fetch(`${API_BASE_URL}/appointments/book`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

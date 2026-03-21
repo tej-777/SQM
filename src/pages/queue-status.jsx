@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { API_BASE_URL } from '../config.js';
 import { swManager } from '../utils/serviceWorker';
 
 const QueueStatus = () => {
@@ -146,7 +147,7 @@ const QueueStatus = () => {
     if (!appointmentId) return;
     
     try {
-      const response = await fetch(`http://localhost:8000/queue/patient/${appointmentId}`);
+      const response = await fetch(`${API_BASE_URL}/queue/patient/${appointmentId}`);
       
       if (!response.ok) {
         throw new Error('Failed to fetch queue status');

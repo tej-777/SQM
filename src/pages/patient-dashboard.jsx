@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
-
-const API_BASE = "http://localhost:8000";
+import { API_BASE_URL } from '../config.js';
 
 const PatientDashboard = () => {
   const navigate = useNavigate();
@@ -156,7 +155,7 @@ const PatientDashboard = () => {
 
     try {
       setLoadingAvailability(true);
-      const response = await fetch(`${API_BASE}/appointments/availability`, {
+      const response = await fetch(`${API_BASE_URL}/appointments/availability`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -199,7 +198,7 @@ const PatientDashboard = () => {
       // Add debug log before booking
       console.log("BOOKING PAYLOAD:", payload);
 
-      const response = await fetch(`${API_BASE}/appointments/book`, {
+      const response = await fetch(`${API_BASE_URL}/appointments/book`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -287,7 +286,7 @@ const PatientDashboard = () => {
       console.log("DEBUG: API call verification - service_id:", selectedServiceId, "target_date:", selectedDate);
       
       const response = await fetch(
-        `${API_BASE}/public/hospitals/hospitals-by-service?service_id=${selectedServiceId}&target_date=${selectedDate}`
+        `${API_BASE_URL}/public/hospitals/hospitals-by-service?service_id=${selectedServiceId}&target_date=${selectedDate}`
       );
       
       if (!response.ok) {

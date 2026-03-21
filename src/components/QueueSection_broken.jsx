@@ -32,7 +32,7 @@ useEffect(() => {
       const service = hospitalServices.find(s => s.id === selectedService);
       console.log('DEBUG: Using service for API call:', service);
       
-      const response = await fetch('http://localhost:8000/queue/call-next', {
+      const response = await fetch(`${API_BASE_URL}/queue/call-next`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -80,7 +80,7 @@ useEffect(() => {
       const service = hospitalServices.find(s => s.id === selectedService);
       console.log('DEBUG: Skip - Using service for API call:', service);
       
-      const response = await fetch('http://localhost:8000/queue/skip', {
+      const response = await fetch(`${API_BASE_URL}/queue/skip`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -151,7 +151,7 @@ useEffect(() => {
       console.log(`DEBUG: Fetching queue for service ${serviceToFetch} on ${dateToFetch}`);
       
       // Fetch queue for SELECTED hospital service only
-      const apiUrl = `http://localhost:8000/queue/status/${serviceToFetch}/${dateToFetch}`;
+      const apiUrl = `${API_BASE_URL}/queue/status/${serviceToFetch}/${dateToFetch}`;
       console.log("DEBUG: Queue API request URL:", apiUrl);
       
       const response = await fetch(apiUrl);

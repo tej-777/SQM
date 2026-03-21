@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { API_BASE_URL } from '../config.js';
 import QueueSection from '../components/QueueSection';
 import Header from '../components/Header';
 import { useAuth } from '../context/AuthContext';
@@ -70,7 +71,7 @@ const StaffDashboard = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem("token");
-      const response = await fetch('http://localhost:8000/auth/me', {
+      const response = await fetch(`${API_BASE_URL}/auth/me`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -172,7 +173,7 @@ const StaffDashboard = () => {
       
       console.log("Fetching hospital services for hospital_id:", hospitalId);
       
-      const response = await fetch(`http://localhost:8000/hospital-services/${hospitalId}`, {
+      const response = await fetch(`${API_BASE_URL}/hospital-services/${hospitalId}`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem("token")}`
         }
@@ -236,7 +237,7 @@ const StaffDashboard = () => {
         total_slots: parseInt(totalSlots)
       };
       
-      const response = await fetch('http://localhost:8000/appointments/availability/', {
+      const response = await fetch(`${API_BASE_URL}/appointments/availability/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -273,7 +274,7 @@ const StaffDashboard = () => {
     try {
       const hospitalId = staffData?.hospital_id || '729a6827-d066-4f4c-868a-e991566d1a99';
       
-      const response = await fetch(`http://localhost:8000/appointments/availability/hospital/${hospitalId}`, {
+      const response = await fetch(`${API_BASE_URL}/appointments/availability/hospital/${hospitalId}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -366,7 +367,7 @@ const StaffDashboard = () => {
     }
 
     try {
-      const response = await fetch(`http://localhost:8000/appointments/availability/${availabilityId}`, {
+      const response = await fetch(`${API_BASE_URL}/appointments/availability/${availabilityId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`,
