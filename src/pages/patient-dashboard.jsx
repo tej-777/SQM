@@ -40,12 +40,12 @@ const PatientDashboard = () => {
     const fetchData = async () => {
       try {
         // Fetch hospitals
-        const hospitalsRes = await fetch(`${API_BASE}/public/hospitals`);
+        const hospitalsRes = await fetch(`${API_BASE_URL}/public/hospitals`);
         const hospitalsData = await hospitalsRes.json();
         setHospitals(hospitalsData);
 
         // Fetch services
-        const servicesRes = await fetch(`${API_BASE}/services`);
+        const servicesRes = await fetch(`${API_BASE_URL}/services`);
         const servicesData = await servicesRes.json();
         setHospitalServices(servicesData);
 
@@ -63,55 +63,50 @@ const PatientDashboard = () => {
   useEffect(() => {
     console.log("DEBUG: Service detection triggered with:", { medicalProblem, hospitalServicesLength: hospitalServices.length });
     if (medicalProblem && hospitalServices.length > 0) {
-      // Comprehensive service mapping for all medical specialists
+      // Create service name to UUID mapping from database
+      const serviceMap = {};
+      hospitalServices.forEach(service => {
+        serviceMap[service.name.toLowerCase()] = service.id;
+      });
+      
+      console.log("DEBUG: Service map created:", serviceMap);
+      
+      // Map medical problems to service UUIDs from database
       const serviceMapping = {
-        // Specialists
-        "Visit Cardiologist - Heart": "3a25e4bd-bd34-44fd-afda-2659bf523e79", // Cardiology
-        "Visit Pulmonologist - Lungs": "963c864d-2945-4423-8fc0-e887f36f4edc", // Pulmonology
-        "Visit Neurologist - Brain & Nerves": "483f1c55-d6f3-4092-ab5a-dc0e4bb12539", // Neurology
-        "Visit Orthopedic - Bones & Joints": "97b416cb-7a60-490e-8ed5-9ce49f25bc46", // Orthopedics
-        "Visit Dermatologist - Skin": "47aa8048-0c68-4ca4-b665-d7cf98c48c6f", // Dermatology
-        "Visit Ophthalmologist - Eyes": "75b6e8fb-42b8-4331-b3ae-f8cb9a622411", // Radiology (closest match for eyes)
-        "Visit ENT Specialist - Ears, Nose, Throat": "cd5e3f70-5612-408a-a20c-ff52597ca18e", // ENT
-        "Visit Gastroenterologist - Digestive System": "04e91c8a-99d4-40ec-8984-bb4c97c93347", // Gastroenterology
-        "Visit Endocrinologist - Hormones & Glands": "05dc3b32-9881-440d-8da4-2e7727f7dfc1", // General Medicine (closest match)
-        "Visit Nephrologist - Kidneys": "05dc3b32-9881-440d-8da4-2e7727f7dfc1", // General Medicine (closest match)
-        "Visit Psychiatrist - Mental Health": "777ca757-8c60-45bb-a65e-fe98c3be4af5", // Psychiatry
-        "Visit Gynecologist - Women Health": "5779a609-03e2-4a56-b584-889d1732409d", // Gynecology
-        "Visit Pediatrician - Children": "d5d2c603-d283-45ae-a3e9-39fa883e98bb", // Pediatrics
-        "Visit Oncologist - Cancer": "342870ff-e9af-458b-b4cc-1f8cf26f363e", // Oncology
-        "Visit Urologist - Urinary System": "85848c93-f2c6-4c59-a01a-c4a5537fcad9", // Urology
-        "Visit Rheumatologist - Autoimmune & Joints": "97b416cb-7a60-490e-8ed5-9ce49f25bc46", // Orthopedics (closest match)
-        "Visit General Physician - General Health": "05dc3b32-9881-440d-8da4-2e7727f7dfc1", // General Medicine
-        "Visit Dentist - Dental": "75b6e8fb-42b8-4331-b3ae-f8cb9a622411", // Radiology (closest match)
-        
-        // Common problems mapping to General Medicine
-        "Fever": "05dc3b32-9881-440d-8da4-2e7727f7dfc1",
-        "Cough & Cold": "963c864d-2945-4423-8fc0-e887f36f4edc", // Pulmonology
-        "Headache": "483f1c55-d6f3-4092-ab5a-dc0e4bb12539", // Neurology
-        "Stomach Pain": "04e91c8a-99d4-40ec-8984-bb4c97c93347", // Gastroenterology
-        "Allergies": "47aa8048-0c68-4ca4-b665-d7cf98c48c6f", // Dermatology
-        "Diabetes Checkup": "05dc3b32-9881-440d-8da4-2e7727f7dfc1", // General Medicine
-        "Blood Pressure Check": "3a25e4bd-bd34-44fd-afda-2659bf523e79", // Cardiology
-        "Mental Health": "777ca757-8c60-45bb-a65e-fe98c3be4af5", // Psychiatry
-        "Injury/Accident": "535d5736-fff2-4ea2-aeef-47fa42f58eb5", // Emergency Medicine
-        "Women Health": "5779a609-03e2-4a56-b584-889d1732409d", // Gynecology
-        "Child Health": "d5d2c603-d283-45ae-a3e9-39fa883e98bb", // Pediatrics
-        "General Checkup": "05dc3b32-9881-440d-8da4-2e7727f7dfc1", // General Medicine
-        "Vaccination": "05dc3b32-9881-440d-8da4-2e7727f7dfc1", // General Medicine
-        "Throat Pain": "cd5e3f70-5612-408a-a20c-ff52597ca18e", // ENT
-        "Body Pain": "97b416cb-7a60-490e-8ed5-9ce49f25bc46", // Orthopedics
-        "Fatigue": "05dc3b32-9881-440d-8da4-2e7727f7dfc1", // General Medicine
-        "Nausea": "04e91c8a-99d4-40ec-8984-bb4c97c93347", // Gastroenterology
-        "Dizziness": "483f1c55-d6f3-4092-ab5a-dc0e4bb12539", // Neurology
-        "Sleep Problems": "777ca757-8c60-45bb-a65e-fe98c3be4af5", // Psychiatry
-        "Weight Management": "05dc3b32-9881-440d-8da4-2e7727f7dfc1", // General Medicine
+        "Chest Pain": serviceMap["cardiology"] || serviceMap["general medicine"],
+        "Breathing Issues": serviceMap["pulmonology"] || serviceMap["general medicine"],
+        "Skin Issues": serviceMap["dermatology"] || serviceMap["general medicine"],
+        "Child Health": serviceMap["pediatrics"] || serviceMap["general medicine"],
+        "Visit General Physician - General Health": serviceMap["general medicine"],
+        "Visit Dentist - Dental": serviceMap["radiology"] || serviceMap["general medicine"],
+        "Fever": serviceMap["general medicine"],
+        "Cough & Cold": serviceMap["pulmonology"] || serviceMap["general medicine"],
+        "Headache": serviceMap["neurology"] || serviceMap["general medicine"],
+        "Stomach Pain": serviceMap["gastroenterology"] || serviceMap["general medicine"],
+        "Allergies": serviceMap["dermatology"] || serviceMap["general medicine"],
+        "Diabetes Checkup": serviceMap["general medicine"],
+        "Blood Pressure Check": serviceMap["cardiology"] || serviceMap["general medicine"],
+        "Mental Health": serviceMap["psychiatry"] || serviceMap["general medicine"],
+        "Injury/Accident": serviceMap["emergency medicine"] || serviceMap["general medicine"],
+        "Women Health": serviceMap["gynecology"] || serviceMap["general medicine"],
+        "General Checkup": serviceMap["general medicine"],
+        "Vaccination": serviceMap["general medicine"],
+        "Throat Pain": serviceMap["ent (ear, nose, throat)"] || serviceMap["general medicine"],
+        "Body Pain": serviceMap["orthopedics"] || serviceMap["general medicine"],
+        "Fatigue": serviceMap["general medicine"],
+        "Nausea": serviceMap["gastroenterology"] || serviceMap["general medicine"],
+        "Dizziness": serviceMap["neurology"] || serviceMap["general medicine"],
+        "Sleep Problems": serviceMap["psychiatry"] || serviceMap["general medicine"],
+        "Weight Management": serviceMap["general medicine"],
       };
       
       const serviceId = serviceMapping[medicalProblem];
       console.log("DEBUG: Mapped service ID:", serviceId);
       
       if (serviceId) {
+        console.log("selectedServiceId value:", serviceId);
+        const selectedDate = bookingSelectedDate.toISOString().split('T')[0];
+        console.log("Full API URL:", `${API_BASE_URL}/public/hospitals/hospitals-by-service?service_id=${serviceId}&date=${selectedDate}`);
         setSelectedServiceId(serviceId);
         console.log("DEBUG: Set selectedServiceId to:", serviceId);
       } else {
@@ -280,21 +275,19 @@ const PatientDashboard = () => {
       
       const selectedDate = bookingSelectedDate.toISOString().split('T')[0];
       
-      console.log("DEBUG: Selected Service:", selectedServiceId);
-      console.log("DEBUG: Selected Date:", selectedDate);
-      console.log("DEBUG: Calling API:", `/public/hospitals/hospitals-by-service?service_id=${selectedServiceId}&target_date=${selectedDate}`);
-      console.log("DEBUG: API call verification - service_id:", selectedServiceId, "target_date:", selectedDate);
+      console.log("1. Selected date:", selectedDate);
+      const apiUrl = `${API_BASE_URL}/public/hospitals/hospitals-by-service?service_id=${selectedServiceId}&target_date=${selectedDate}`;
+      console.log("2. API URL being called:", apiUrl);
       
-      const response = await fetch(
-        `${API_BASE_URL}/public/hospitals/hospitals-by-service?service_id=${selectedServiceId}&target_date=${selectedDate}`
-      );
+      const response = await fetch(apiUrl);
+      console.log("3. API response status:", response.status);
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       
       const data = await response.json();
-      console.log("DEBUG: Hospitals response:", data);
+      console.log("4. Raw API response data:", data);
       
       if (!Array.isArray(data)) {
         throw new Error('Invalid response format');
@@ -304,7 +297,7 @@ const PatientDashboard = () => {
       if (!data || data.length === 0) {
         console.warn("No filtered hospitals found, loading all hospitals for demo");
         try {
-          const fallbackResponse = await fetch(`${API_BASE}/public/hospitals`);
+          const fallbackResponse = await fetch(`${API_BASE_URL}/public/hospitals`);
           const fallbackData = await fallbackResponse.json();
           
           // Transform fallback data to match expected format
@@ -318,6 +311,7 @@ const PatientDashboard = () => {
           }));
           
           setHospitalAvailabilityList(transformedFallback);
+          console.log("5. Filtered result:", transformedFallback);
           console.log("DEBUG: Fallback hospitals loaded:", transformedFallback.length);
           
           // Show user message about demo mode
@@ -329,6 +323,7 @@ const PatientDashboard = () => {
         }
       } else {
         setHospitalAvailabilityList(data);
+        console.log("5. Filtered result:", data);
         console.log("DEBUG: Filtered hospitals loaded:", data.length);
         // Clear any previous error message when successful
         setAvailabilityError('');
