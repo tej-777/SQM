@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import HTTPBearer
 from app.database import engine, Base
+from app.seed_staff import seed  # For staff user
+from app.seed_services import seed_services  # For medical services
 import os
 
 
@@ -21,6 +23,29 @@ app = FastAPI(
     version="1.0.0",
     security=[{"Bearer": []}]
 )
+
+# Add startup event for database seeding
+@app.on_event("startup")
+async def startup_event():
+    """Seed database on startup if needed"""
+    try:
+        print("🚀 Starting database seeding...")
+        
+        # Seed staff user (dev/1234)
+        seed()
+        print("✅ Staff user seeded")
+        
+        # Seed medical services
+        seed_services()
+        print("✅ Medical services seeded")
+        
+        print("🎉 Database seeding completed successfully!")
+        print("👤 Staff login: dev / 1234")
+        print("📋 Services: Cardiology, Orthopedics, Dermatology, Pediatrics...")
+        
+    except Exception as e:
+        print(f"❌ Database seeding failed: {e}")
+        # Don't raise exception - let app start anyway
 
 # Configure CORS
 app.add_middleware(

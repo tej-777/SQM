@@ -5,7 +5,8 @@ from app.models import hospital, service, hospital_service, service_availability
 import uuid
 from datetime import datetime
 
-def seed_database():
+def seed():
+    """Seed database with initial data"""
     db = SessionLocal()
     try:
         # Check if hospital already exists
@@ -73,4 +74,4 @@ def seed_database():
         db.close()
 
 if __name__ == "__main__":
-    seed_database()
+    seed()

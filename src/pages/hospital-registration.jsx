@@ -49,13 +49,21 @@ const HospitalRegistration = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
+        console.log('🔍 Fetching services from:', `${API_BASE_URL}/services/`);
         const response = await fetch(`${API_BASE_URL}/services/`);
+        console.log('📡 Services API response:', response);
+        
         if (response.ok) {
           const services = await response.json();
+          console.log('✅ Services fetched successfully:', services);
           setAvailableServices(services);
+        } else {
+          console.error('❌ Services API error:', response.status, response.statusText);
+          const errorData = await response.json().catch(() => ({}));
+          console.error('❌ Services API error details:', errorData);
         }
       } catch (error) {
-        console.error('Error fetching services:', error);
+        console.error('❌ Error fetching services:', error);
       }
     };
     
