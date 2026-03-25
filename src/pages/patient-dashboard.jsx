@@ -76,12 +76,70 @@ const PatientDashboard = () => {
       console.log("🔍 DEBUG: Available services from database:", hospitalServices.map(s => ({ name: s.name, id: s.id })));
       console.log("🔍 DEBUG: Service map created:", serviceMap);
       
-      // Add direct mapping for Dermatologist case
+      // Add direct mapping for all medical specialties
       const directMapping = {
-        "Dermatologist": serviceMap["dermatology"] || serviceMap["dermatologist"],
-        "Visit Dermatologist - Skin": serviceMap["dermatology"] || serviceMap["dermatologist"],
-        "Skin Issues": serviceMap["dermatology"] || serviceMap["dermatologist"],
-        "Allergies": serviceMap["dermatology"] || serviceMap["dermatologist"],
+        // Exact matches for dropdown options
+        "Cardiology": serviceMap["cardiology"],
+        "Dermatology": serviceMap["dermatology"],
+        "Pediatrics": serviceMap["pediatrics"],
+        "General Medicine": serviceMap["general medicine"],
+        "ENT (Ear, Nose, Throat)": serviceMap["ent (ear, nose, throat)"],
+        "Neurology": serviceMap["neurology"],
+        "Gynecology": serviceMap["gynecology"],
+        "Oncology": serviceMap["oncology"],
+        "Emergency Medicine": serviceMap["emergency medicine"],
+        "Radiology": serviceMap["radiology"],
+        "Pulmonology": serviceMap["pulmonology"],
+        "Urology": serviceMap["urology"],
+        "Gastroenterology": serviceMap["gastroenterology"],
+        "Psychiatry": serviceMap["psychiatry"],
+        "Orthopedics": serviceMap["orthopedics"],
+        
+        // Alternative names and variations
+        "Dermatologist": serviceMap["dermatology"],
+        "Cardiologist": serviceMap["cardiology"],
+        "Pediatrician": serviceMap["pediatrics"],
+        "General Physician": serviceMap["general medicine"],
+        "ENT Specialist": serviceMap["ent (ear, nose, throat)"],
+        "Neurologist": serviceMap["neurology"],
+        "Gynecologist": serviceMap["gynecology"],
+        "Oncologist": serviceMap["oncology"],
+        "Emergency Doctor": serviceMap["emergency medicine"],
+        "Radiologist": serviceMap["radiology"],
+        "Pulmonologist": serviceMap["pulmonology"],
+        "Urologist": serviceMap["urology"],
+        "Gastroenterologist": serviceMap["gastroenterology"],
+        "Psychiatrist": serviceMap["psychiatry"],
+        "Orthopedic": serviceMap["orthopedics"],
+        
+        // Medical problem mappings
+        "Visit Dermatologist - Skin": serviceMap["dermatology"],
+        "Visit Cardiologist - Heart": serviceMap["cardiology"],
+        "Chest Pain": serviceMap["cardiology"],
+        "Breathing Issues": serviceMap["pulmonology"],
+        "Skin Issues": serviceMap["dermatology"],
+        "Child Health": serviceMap["pediatrics"],
+        "Visit General Physician - General Health": serviceMap["general medicine"],
+        "Visit Dentist - Dental": serviceMap["radiology"],
+        "Fever": serviceMap["general medicine"],
+        "Cough & Cold": serviceMap["pulmonology"],
+        "Headache": serviceMap["neurology"],
+        "Stomach Pain": serviceMap["gastroenterology"],
+        "Allergies": serviceMap["dermatology"],
+        "Diabetes Checkup": serviceMap["general medicine"],
+        "Blood Pressure Check": serviceMap["cardiology"],
+        "Mental Health": serviceMap["psychiatry"],
+        "Injury/Accident": serviceMap["emergency medicine"],
+        "Women Health": serviceMap["gynecology"],
+        "General Checkup": serviceMap["general medicine"],
+        "Vaccination": serviceMap["general medicine"],
+        "Throat Pain": serviceMap["ent (ear, nose, throat)"],
+        "Body Pain": serviceMap["orthopedics"],
+        "Fatigue": serviceMap["general medicine"],
+        "Nausea": serviceMap["gastroenterology"],
+        "Dizziness": serviceMap["neurology"],
+        "Sleep Problems": serviceMap["psychiatry"],
+        "Weight Management": serviceMap["general medicine"],
       };
       
       console.log("🔍 DEBUG: Checking direct mapping for:", medicalProblem);

@@ -57,9 +57,9 @@ const QueueStatus = () => {
 
   // STEP 3: Convert minutes to seconds when API data is received
   useEffect(() => {
-    if (queueData?.estimatedWaitTime !== undefined) {
-      setEtaSeconds(queueData.estimatedWaitTime * 60);
-      console.log("DEBUG: ETA converted to seconds:", queueData.estimatedWaitTime * 60);
+    if (queueData?.estimatedWaitMinutes !== undefined) {
+      setEtaSeconds(queueData.estimatedWaitMinutes * 60);
+      console.log("DEBUG: ETA converted to seconds:", queueData.estimatedWaitMinutes * 60);
     }
   }, [queueData]);
 
@@ -147,16 +147,21 @@ const QueueStatus = () => {
     if (!appointmentId) return;
     
     try {
-      const response = await fetch(`${API_BASE_URL}/queue/patient/${appointmentId}`);
+      const apiUrl = `${API_BASE_URL}/queue/patient/${appointmentId}`;
+      console.log("🔍 DEBUG: Fetching queue status from:", apiUrl);
+      
+      const response = await fetch(apiUrl);
       
       if (!response.ok) {
-        throw new Error('Failed to fetch queue status');
+        const errorData = await response.json().catch(() => ({}));
+        console.error("❌ DEBUG: Queue status API error:", response.status, response.statusText);
+        console.error("❌ DEBUG: Error details:", errorData);
+        throw new Error(`Failed to fetch queue status: ${response.status} ${response.statusText}`);
       }
       
       const data = await response.json();
-      
-      console.log("DEBUG: Queue Status API Response:", data);
-      console.log("DEBUG: Estimated wait time from backend:", data.estimated_wait_time);
+      console.log("✅ DEBUG: Queue Status API Response:", data);
+      console.log("✅ DEBUG: Estimated wait time from backend:", data.estimated_wait_minutes);
       
       // STEP 7: Sync with API updates - check if ETA differs significantly
       const newEtaSeconds = data.estimated_wait_minutes * 60;
@@ -176,7 +181,7 @@ const QueueStatus = () => {
         phone: data.patient_phone,
         token: data.token_number,
         peopleAhead: data.people_ahead,
-        estimatedWaitTime: data.estimated_wait_minutes,
+        estimatedWaitMinutes: data.estimated_wait_minutes,
         status: data.status
       });
       

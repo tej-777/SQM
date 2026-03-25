@@ -325,6 +325,7 @@ const StaffDashboard = () => {
         const staffUser = JSON.parse(staffUserStr);
         if (staffUser?.hospital_id && token) {
           fetchHospitalServices();
+          fetchExistingAvailabilities(); // Add this to load existing availabilities on mount
         }
       }
     } catch (error) {
