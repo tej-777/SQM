@@ -61,7 +61,11 @@ const PatientDashboard = () => {
 
   // Find service ID based on medical problem
   useEffect(() => {
-    console.log("DEBUG: Service detection triggered with:", { medicalProblem, hospitalServicesLength: hospitalServices.length });
+    console.log("🔍 DEBUG: Service detection triggered");
+    console.log("🔍 DEBUG: medicalProblem =", JSON.stringify(medicalProblem));
+    console.log("🔍 DEBUG: hospitalServices length =", hospitalServices.length);
+    console.log("🔍 DEBUG: Type of medicalProblem =", typeof medicalProblem);
+    
     if (medicalProblem && hospitalServices.length > 0) {
       // Create service name to UUID mapping from database
       const serviceMap = {};
@@ -69,44 +73,93 @@ const PatientDashboard = () => {
         serviceMap[service.name.toLowerCase()] = service.id;
       });
       
-      console.log("DEBUG: Service map created:", serviceMap);
+      console.log("🔍 DEBUG: Available services from database:", hospitalServices.map(s => ({ name: s.name, id: s.id })));
+      console.log("🔍 DEBUG: Service map created:", serviceMap);
       
-      // Map medical problems to service UUIDs from database
-      const serviceMapping = {
-        "Chest Pain": serviceMap["cardiology"] || serviceMap["general medicine"],
-        "Breathing Issues": serviceMap["pulmonology"] || serviceMap["general medicine"],
-        "Skin Issues": serviceMap["dermatology"] || serviceMap["general medicine"],
-        "Child Health": serviceMap["pediatrics"] || serviceMap["general medicine"],
-        "Visit General Physician - General Health": serviceMap["general medicine"],
-        "Visit Dentist - Dental": serviceMap["radiology"] || serviceMap["general medicine"],
-        "Fever": serviceMap["general medicine"],
-        "Cough & Cold": serviceMap["pulmonology"] || serviceMap["general medicine"],
-        "Headache": serviceMap["neurology"] || serviceMap["general medicine"],
-        "Stomach Pain": serviceMap["gastroenterology"] || serviceMap["general medicine"],
-        "Allergies": serviceMap["dermatology"] || serviceMap["general medicine"],
-        "Diabetes Checkup": serviceMap["general medicine"],
-        "Blood Pressure Check": serviceMap["cardiology"] || serviceMap["general medicine"],
-        "Mental Health": serviceMap["psychiatry"] || serviceMap["general medicine"],
-        "Injury/Accident": serviceMap["emergency medicine"] || serviceMap["general medicine"],
-        "Women Health": serviceMap["gynecology"] || serviceMap["general medicine"],
-        "General Checkup": serviceMap["general medicine"],
-        "Vaccination": serviceMap["general medicine"],
-        "Throat Pain": serviceMap["ent (ear, nose, throat)"] || serviceMap["general medicine"],
-        "Body Pain": serviceMap["orthopedics"] || serviceMap["general medicine"],
-        "Fatigue": serviceMap["general medicine"],
-        "Nausea": serviceMap["gastroenterology"] || serviceMap["general medicine"],
-        "Dizziness": serviceMap["neurology"] || serviceMap["general medicine"],
-        "Sleep Problems": serviceMap["psychiatry"] || serviceMap["general medicine"],
-        "Weight Management": serviceMap["general medicine"],
+      // Add direct mapping for Dermatologist case
+      const directMapping = {
+        "Dermatologist": serviceMap["dermatology"] || serviceMap["dermatologist"],
+        "Visit Dermatologist - Skin": serviceMap["dermatology"] || serviceMap["dermatologist"],
+        "Skin Issues": serviceMap["dermatology"] || serviceMap["dermatologist"],
+        "Allergies": serviceMap["dermatology"] || serviceMap["dermatologist"],
       };
       
-      const serviceId = serviceMapping[medicalProblem];
-      console.log("DEBUG: Mapped service ID:", serviceId);
+      console.log("🔍 DEBUG: Checking direct mapping for:", medicalProblem);
+      console.log("🔍 DEBUG: Direct mapping result:", directMapping[medicalProblem]);
+      
+      // Try direct mapping first
+      let serviceId = directMapping[medicalProblem];
+      
+      if (!serviceId) {
+        console.log("🔍 DEBUG: Direct mapping failed, trying original mapping");
+        // Original mapping logic
+        const serviceMapping = {
+          "Chest Pain": serviceMap["cardiology"] || serviceMap["general medicine"],
+          "Breathing Issues": serviceMap["pulmonology"] || serviceMap["general medicine"],
+          "Skin Issues": serviceMap["dermatology"] || serviceMap["dermatologist"] || serviceMap["general medicine"],
+          "Child Health": serviceMap["pediatrics"] || serviceMap["general medicine"],
+          "Visit General Physician - General Health": serviceMap["general medicine"],
+          "Visit Dentist - Dental": serviceMap["radiology"] || serviceMap["general medicine"],
+          "Fever": serviceMap["general medicine"],
+          "Cough & Cold": serviceMap["pulmonology"] || serviceMap["general medicine"],
+          "Headache": serviceMap["neurology"] || serviceMap["general medicine"],
+          "Stomach Pain": serviceMap["gastroenterology"] || serviceMap["general medicine"],
+          "Allergies": serviceMap["dermatology"] || serviceMap["dermatologist"] || serviceMap["general medicine"],
+          "Diabetes Checkup": serviceMap["general medicine"],
+          "Blood Pressure Check": serviceMap["cardiology"] || serviceMap["general medicine"],
+          "Mental Health": serviceMap["psychiatry"] || serviceMap["general medicine"],
+          "Injury/Accident": serviceMap["emergency medicine"] || serviceMap["general medicine"],
+          "Women Health": serviceMap["gynecology"] || serviceMap["general medicine"],
+          "General Checkup": serviceMap["general medicine"],
+          "Vaccination": serviceMap["general medicine"],
+          "Throat Pain": serviceMap["ent (ear, nose, throat)"] || serviceMap["general medicine"],
+          "Body Pain": serviceMap["orthopedics"] || serviceMap["general medicine"],
+          "Fatigue": serviceMap["general medicine"],
+          "Nausea": serviceMap["gastroenterology"] || serviceMap["general medicine"],
+          "Dizziness": serviceMap["neurology"] || serviceMap["general medicine"],
+          "Sleep Problems": serviceMap["psychiatry"] || serviceMap["general medicine"],
+          "Weight Management": serviceMap["general medicine"],
+        };
+        
+        serviceId = serviceMapping[medicalProblem];
+        console.log("🔍 DEBUG: Original mapping result:", serviceId);
+      }
+      
+      // If still not found, try fuzzy matching
+      if (!serviceId) {
+        console.log("🔍 DEBUG: All mappings failed, trying fuzzy match");
+        const medicalProblemLower = medicalProblem.toLowerCase();
+        
+        for (const [serviceName, serviceUuid] of Object.entries(serviceMap)) {
+          console.log(`🔍 DEBUG: Checking match: "${medicalProblemLower}" vs "${serviceName}"`);
+          if (medicalProblemLower.includes(serviceName) || serviceName.includes(medicalProblemLower)) {
+            serviceId = serviceUuid;
+            console.log(`🔍 DEBUG: Found fuzzy match: ${medicalProblem} -> ${serviceName} -> ${serviceUuid}`);
+            break;
+          }
+        }
+      }
+      
+      // Final fallback
+      if (!serviceId) {
+        serviceId = serviceMap["general medicine"];
+        console.log("🔍 DEBUG: FINAL FALLBACK to general medicine:", serviceId);
+        console.log("🔍 DEBUG: Available service names:", Object.keys(serviceMap));
+      }
+      
+      console.log("🔍 DEBUG: FINAL service ID:", serviceId);
       
       if (serviceId) {
         console.log("selectedServiceId value:", serviceId);
-        const selectedDate = bookingSelectedDate.toISOString().split('T')[0];
-        console.log("Full API URL:", `${API_BASE_URL}/public/hospitals/hospitals-by-service?service_id=${serviceId}&date=${selectedDate}`);
+        
+        // Check if bookingSelectedDate is available
+        if (bookingSelectedDate) {
+          const selectedDate = bookingSelectedDate.toISOString().split('T')[0];
+          console.log("Full API URL:", `${API_BASE_URL}/public/hospitals/hospitals-by-service?service_id=${serviceId}&date=${selectedDate}`);
+        } else {
+          console.log("Full API URL:", `${API_BASE_URL}/public/hospitals/hospitals-by-service?service_id=${serviceId}&date=not-selected`);
+        }
+        
         setSelectedServiceId(serviceId);
         console.log("DEBUG: Set selectedServiceId to:", serviceId);
       } else {
