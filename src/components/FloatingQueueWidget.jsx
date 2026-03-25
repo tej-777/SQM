@@ -7,6 +7,9 @@ const FloatingQueueWidget = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [queueData, setQueueData] = useState(null);
   const [isMinimized, setIsMinimized] = useState(false);
+  
+  // Calculate estimated wait time in MM:SS format like queue status page
+  const [etaSeconds, setEtaSeconds] = useState(0);
 
   useEffect(() => {
     // Check for active queue in localStorage
@@ -45,6 +48,24 @@ const FloatingQueueWidget = () => {
     }
   }, []);
 
+  // Convert minutes to seconds when data is received
+  useEffect(() => {
+    if (queueData?.estimatedWaitMinutes !== undefined) {
+      setEtaSeconds(queueData.estimatedWaitMinutes * 60);
+    }
+  }, [queueData]);
+  
+  // Create countdown timer
+  useEffect(() => {
+    if (etaSeconds <= 0) return;
+
+    const interval = setInterval(() => {
+      setEtaSeconds(prev => (prev > 0 ? prev - 1 : 0));
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [etaSeconds]);
+
   const handleWidgetClick = (e) => {
     // Prevent navigation if X button is clicked
     if (e.target.closest('.dismiss-btn')) return;
@@ -68,12 +89,24 @@ const FloatingQueueWidget = () => {
     setIsMinimized(false);
   };
 
+  // Early return ONLY after all hooks
   if (!isVisible || !queueData) {
     return null;
   }
 
   const isWaiting = queueData.status === "waiting" || queueData.status === "Waiting";
   const token = queueData.token || "T-0";
+  const peopleAhead = queueData.peopleAhead || 0;
+  
+  // Format time as MM:SS - same as queue-status page
+  const formatTime = (seconds) => {
+    if (!seconds || seconds <= 0) return "0:00";
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+  };
+  
+  const estWaitTime = formatTime(etaSeconds);
 
   return (
     <AnimatePresence>
@@ -83,14 +116,20 @@ const FloatingQueueWidget = () => {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
           whileHover={{ scale: 1.02 }}
-          className="fixed bottom-4 right-4 z-50 cursor-pointer max-w-[90vw]"
+          className="fixed cursor-pointer"
           onClick={handleWidgetClick}
           style={{
+            position: 'fixed',
+            bottom: '16px',
+            right: '20px',
+            zIndex: 9999,
+            width: '180px',
+            maxWidth: '85vw',
             boxShadow: '0 8px 32px rgba(0,0,0,0.4)'
           }}
         >
           <div 
-            className="rounded-2xl p-3 sm:p-4 min-w-[280px] sm:min-w-[320px]"
+            className="rounded-2xl p-3 sm:p-4 w-full"
             style={{
               background: 'linear-gradient(135deg, #1a1a2e, #16213e)'
             }}
@@ -117,7 +156,7 @@ const FloatingQueueWidget = () => {
             
             {/* Token Number */}
             <div className="text-center mb-2 sm:mb-3">
-              <div className={`text-xl sm:text-2xl font-bold ${isWaiting ? 'text-green-400' : 'text-blue-400'}`}>
+              <div className={`text-base sm:text-lg font-bold ${isWaiting ? 'text-green-400' : 'text-blue-400'}`}>
                 {token}
               </div>
             </div>
@@ -127,9 +166,17 @@ const FloatingQueueWidget = () => {
               <div className="text-xs sm:text-sm text-white font-medium truncate">
                 {queueData.patientName || queueData.name || 'Patient'}
               </div>
-              <div className="text-xs text-gray-400 truncate">
+              <div className="text-xs sm:text-sm text-gray-400 truncate">
                 {queueData.hospital} • {queueData.service}
               </div>
+              
+              {/* Estimated Wait Time */}
+              {(isWaiting || peopleAhead > 0) && (
+                <div className="flex items-center justify-between mt-2 pt-2 border-t border-gray-600">
+                  <span className="text-xs text-gray-400">Est. Wait:</span>
+                  <span className="text-xs sm:text-sm font-bold text-blue-400">{estWaitTime}</span>
+                </div>
+              )}
               
               {/* Status with pulsing dot */}
               <div className="flex items-center gap-2 mt-2">
@@ -147,13 +194,12 @@ const FloatingQueueWidget = () => {
                     />
                   )}
                 </div>
-                <div className="text-xs font-medium capitalize" style={{
-                  color: queueData.status === "completed" || queueData.status === "COMPLETED" ? '#9CA3AF' :
-                         queueData.status === "called" || queueData.status === "CALLED" ? '#FB923C' :
-                         '#10B981'
-                }}>
-                  {queueData.status}
-                </div>
+                <span className="text-xs sm:text-sm font-medium capitalize">
+                  {queueData.status === "waiting" || queueData.status === "WAITING" ? "Waiting" :
+                   queueData.status === "called" || queueData.status === "CALLED" ? "Called" :
+                   queueData.status === "completed" || queueData.status === "COMPLETED" ? "Completed" :
+                   queueData.status}
+                </span>
               </div>
             </div>
           </div>
@@ -164,7 +210,13 @@ const FloatingQueueWidget = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
-          className="fixed bottom-4 right-4 z-50"
+          className="fixed cursor-pointer"
+          style={{
+            position: 'fixed',
+            bottom: '16px',
+            right: '20px',
+            zIndex: 9999
+          }}
         >
           <motion.button
             onClick={handleRestore}

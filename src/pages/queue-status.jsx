@@ -387,16 +387,16 @@ const QueueStatus = () => {
                     <div className="text-sm text-gray-600">Please proceed to the counter</div>
                   </div>
                 ) : (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-yellow-600">{queueData.peopleAhead}</div>
-                      <div className="text-sm text-gray-600">People Ahead</div>
+                  <div className="grid grid-cols-2 gap-4 w-full">
+                    <div className="text-center p-3 sm:p-6">
+                      <p className="text-2xl sm:text-4xl font-bold text-yellow-400">{queueData.peopleAhead}</p>
+                      <p className="text-xs sm:text-sm text-gray-400 mt-1">People Ahead</p>
                     </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-blue-600 transition-all duration-300 ease-in-out">
+                    <div className="text-center p-3 sm:p-6">
+                      <p className="text-2xl sm:text-4xl font-bold text-blue-400 transition-all duration-300 ease-in-out">
                         {etaSeconds > 0 ? formatTime(etaSeconds) : "0:00"}
-                      </div>
-                      <div className="text-sm text-gray-600">Est. Wait (MM:SS)</div>
+                      </p>
+                      <p className="text-xs sm:text-sm text-gray-400 mt-1">Est. Wait (MM:SS)</p>
                     </div>
                   </div>
                 )}

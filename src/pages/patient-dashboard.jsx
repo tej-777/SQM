@@ -333,7 +333,9 @@ const PatientDashboard = () => {
         service: getServiceName(selectedServiceId),
         status: "Waiting",
         appointmentId: data.appointment_id,
-        patientName: patientName  // Add patient name
+        patientName: patientName,  // Add patient name
+        peopleAhead: data.people_ahead || 0,
+        estimatedWaitMinutes: data.estimated_wait_minutes || 0  // save as raw number
       };
       
       console.log("🔍 PatientDashboard: Saving to active_queue:", queueData);
