@@ -304,7 +304,7 @@ const QueueStatus = () => {
   }
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-blue-50 via-white to-purple-50 p-4">
+    <div className="min-h-screen bg-linear-to-br from-blue-50 via-white to-purple-50 p-4 pt-20 sm:pt-20">
       <div className="max-w-2xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

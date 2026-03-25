@@ -395,7 +395,7 @@ const StaffDashboard = () => {
   }
 
   return (
-    <section className="min-h-screen bg-linear-to-br from-slate-50 via-white to-indigo-50">
+    <section className="min-h-screen bg-linear-to-br from-slate-50 via-white to-indigo-50 pt-20 sm:pt-20">
       {/* Error Display */}
       {error && (
         <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 m-4 rounded-lg">

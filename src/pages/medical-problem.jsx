@@ -116,7 +116,7 @@ const MedicalProblem = () => {
   );
 
   return (
-    <section className="min-h-screen bg-gray-50">
+    <section className="min-h-screen bg-gray-50 pt-20 sm:pt-20">
       {/* Header */}
       <header
         className="fixed top-4 left-1/2 transform -translate-x-1/2 w-[92%] md:w-[80%]

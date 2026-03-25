@@ -5,6 +5,9 @@ import App from './App.jsx'
 import { AuthProvider } from './context/AuthContext.jsx'
 import { swManager } from './utils/serviceWorker.js'
 
+// Set document title with fallback
+document.title = import.meta.env.VITE_APP_TITLE || "TREFIX - Smart Queue System"
+
 // Register Service Worker for background notifications
 if ('serviceWorker' in navigator) {
   swManager.register().then(success => {
