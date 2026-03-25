@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { authApi } from '../services/api';
@@ -13,6 +13,14 @@ const StaffLogin = () => {
 
   const { login } = useAuth();
   const navigate = useNavigate();
+
+  // Check if token already exists and redirect to dashboard
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    if (storedToken) {
+      navigate('/staff-dashboard');
+    }
+  }, []);
 
   const handleLogin = async (e) => {
     e.preventDefault();

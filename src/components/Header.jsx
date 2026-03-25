@@ -5,6 +5,9 @@ import { useNavigate } from "react-router-dom";
 const Header = ({ showNavigation = true, showActions = true, customActions = null }) => {
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  // Check if staff is logged in
+  const isStaffLoggedIn = !!localStorage.getItem("token");
 
   return (
     <header
@@ -65,12 +68,21 @@ const Header = ({ showNavigation = true, showActions = true, customActions = nul
           </div>
         ) : showActions && (
           <div className="hidden md:flex items-center gap-2 sm:gap-3">
-            <button
-              onClick={() => navigate('/staff-login')}
-              className="px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors text-sm"
-            >
-              Staff Login
-            </button>
+            {isStaffLoggedIn ? (
+              <button
+                onClick={() => navigate('/staff-dashboard')}
+                className="px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors text-sm"
+              >
+                Staff Dashboard
+              </button>
+            ) : (
+              <button
+                onClick={() => navigate('/staff-login')}
+                className="px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors text-sm"
+              >
+                Staff Login
+              </button>
+            )}
             <button
               onClick={() => navigate('/medical-problem')}
               className="px-3 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors text-sm"
@@ -104,12 +116,21 @@ const Header = ({ showNavigation = true, showActions = true, customActions = nul
           </nav>
           {showActions && (
             <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-gray-200">
-              <button
-                onClick={() => navigate('/staff-login')}
-                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors text-sm text-center"
-              >
-                Staff Login
-              </button>
+              {isStaffLoggedIn ? (
+                <button
+                  onClick={() => navigate('/staff-dashboard')}
+                  className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors text-sm text-center"
+                >
+                  Staff Dashboard
+                </button>
+              ) : (
+                <button
+                  onClick={() => navigate('/staff-login')}
+                  className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors text-sm text-center"
+                >
+                  Staff Login
+                </button>
+              )}
               <button
                 onClick={() => navigate('/medical-problem')}
                 className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors text-sm text-center"

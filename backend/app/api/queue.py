@@ -38,7 +38,19 @@ def get_patient_queue_status_endpoint(
         ).first()
 
         if not appointment:
-            raise HTTPException(status_code=404, detail="Appointment not found")
+            # Return proper response instead of 404
+            return {
+                "status": "not_found",
+                "message": "No active queue entry found for this appointment",
+                "appointment_id": str(appointment_id),
+                "people_ahead": None,
+                "estimated_wait_minutes": None,
+                "hospital_name": None,
+                "service_name": None,
+                "patient_name": None,
+                "patient_phone": None,
+                "token_number": None
+            }
 
         # 2. Edge cases for served/skipped/cancelled status
         if appointment.status in [AppointmentStatus.SERVED, AppointmentStatus.SKIPPED, AppointmentStatus.CANCELLED]:

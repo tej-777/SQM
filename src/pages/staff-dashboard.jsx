@@ -9,7 +9,7 @@ import { staffApi } from '../services/api';
 
 const StaffDashboard = () => {
   const navigate = useNavigate();
-  const { token, login, logout, isAuthenticated } = useAuth();
+  const { token, login, logout, isAuthenticated, isStaff } = useAuth();
   
   // Check authentication immediately from localStorage
   useEffect(() => {
@@ -18,8 +18,12 @@ const StaffDashboard = () => {
       navigate('/staff-login');
       return;
     }
-    // proceed normally - token exists
-  }, []);
+    // If AuthContext doesn't have token yet, sync it
+    if (!token) {
+      login(storedToken);
+    }
+    fetchStaffProfile();
+  }, []); // empty dependency array - only runs once on mount
   
   // Loading state
   const [loading, setLoading] = useState(false);
@@ -307,33 +311,6 @@ const StaffDashboard = () => {
       setTotalSlots('');
     }
   };
-
-  // Load services on component mount
-  useEffect(() => {
-    console.log('✅ Token found, user is authenticated');
-    
-    // Fetch hospital services when staff user data is available
-    try {
-      const staffUserStr = localStorage.getItem("staff_user");
-      if (staffUserStr && staffUserStr !== "undefined" && staffUserStr !== "null") {
-        const staffUser = JSON.parse(staffUserStr);
-        console.log('✅ Staff user data found:', staffUser);
-        setStaffData(staffUser);
-        
-        if (staffUser?.hospital_id) {
-          fetchHospitalServices();
-        }
-      } else {
-        console.log('⚠️ No staff user data found, fetching from API');
-        // Fetch staff profile if not in localStorage
-        fetchStaffProfile();
-      }
-    } catch (error) {
-      console.error('Error parsing staff user data:', error);
-      // Don't redirect to login immediately, try to fetch from API first
-      fetchStaffProfile();
-    }
-  }, []); // Remove token dependency since we check localStorage directly
 
   // Fetch existing availabilities when staffData is available
   useEffect(() => {

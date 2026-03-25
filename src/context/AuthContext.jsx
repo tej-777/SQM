@@ -5,6 +5,7 @@ const AuthContext = createContext(null);
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(() => localStorage.getItem("token") || null);
   const [isAuthenticated, setIsAuthenticated] = useState(() => !!localStorage.getItem("token"));
+  const [isStaff, setIsStaff] = useState(() => !!localStorage.getItem("token"));
 
   useEffect(() => {
     const savedToken = localStorage.getItem("token");
@@ -12,10 +13,12 @@ export const AuthProvider = ({ children }) => {
     if (savedToken) {
       setToken(savedToken);
       setIsAuthenticated(true);
+      setIsStaff(true);
       console.log("✅ AuthContext - Token restored from localStorage");
     } else {
       console.log("❌ AuthContext - No token found in localStorage");
       setIsAuthenticated(false);
+      setIsStaff(false);
     }
   }, []);
 
@@ -24,6 +27,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem("token", jwtToken);
     setToken(jwtToken);
     setIsAuthenticated(true);
+    setIsStaff(true);
   };
 
   const logout = () => {
@@ -31,10 +35,11 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("token");
     setToken(null);
     setIsAuthenticated(false);
+    setIsStaff(false);
   };
 
   return (
-    <AuthContext.Provider value={{ token, isAuthenticated, login, logout }}>
+    <AuthContext.Provider value={{ token, isAuthenticated, isStaff, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
