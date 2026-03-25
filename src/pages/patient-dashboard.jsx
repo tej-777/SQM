@@ -326,6 +326,19 @@ const PatientDashboard = () => {
       console.log("DEBUG: Appointment ID:", data.appointment_id);
       console.log("DEBUG: Token Number:", data.token_number);
 
+      // Save active queue data to localStorage
+      const queueData = {
+        token: `T-${data.token_number}`,
+        hospital: bookingData.hospital.hospital_name,
+        service: getServiceName(selectedServiceId),
+        status: "Waiting",
+        appointmentId: data.appointment_id,
+        patientName: patientName  // Add patient name
+      };
+      
+      console.log("🔍 PatientDashboard: Saving to active_queue:", queueData);
+      localStorage.setItem("active_queue", JSON.stringify(queueData));
+
       setShowBookingModal(false);
       setBookingData(null);
       setPatientName('');

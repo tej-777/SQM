@@ -7,12 +7,16 @@ import { swManager } from '../utils/serviceWorker';
 const QueueStatus = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const appointmentId = location?.state?.appointment_id;
-  const tokenNumber = location?.state?.token_number;
+  const activeQueueData = JSON.parse(localStorage.getItem("active_queue"));
+  
+  const appointmentId = location.state?.appointmentId || activeQueueData?.appointmentId;
+  const tokenNumber = location.state?.tokenNumber || activeQueueData?.token;
+  const patientName = location.state?.patientName || activeQueueData?.patientName;
   const previousPeopleAhead = useRef(null);
   const notificationPermissionGranted = useRef(false);
 
   console.log("DEBUG: Queue Status - Location state:", location?.state);
+  console.log("DEBUG: Queue Status - localStorage data:", activeQueueData);
   console.log("DEBUG: Queue Status - Appointment ID:", appointmentId);
   console.log("DEBUG: Queue Status - Token Number:", tokenNumber);
 
@@ -198,6 +202,36 @@ const QueueStatus = () => {
         estimatedWaitMinutes: data.estimated_wait_minutes,
         status: data.status
       });
+      
+      // Update localStorage with latest queue status
+      const activeQueue = localStorage.getItem("active_queue");
+      if (activeQueue) {
+        try {
+          const parsedQueue = JSON.parse(activeQueue);
+          const updatedQueue = {
+            ...parsedQueue,
+            status: data.status,
+            peopleAhead: data.people_ahead,
+            estimatedWaitMinutes: data.estimated_wait_minutes,
+            patientName: data.patient_name  // Add patient name from API
+          };
+          localStorage.setItem("active_queue", JSON.stringify(updatedQueue));
+          console.log("🔄 Updated active_queue in localStorage:", updatedQueue);
+          
+          // Auto-clear localStorage when status is completed or called
+          if (data.status === "completed" || data.status === "called" || data.status === "SERVED" || data.status === "CALLED") {
+            localStorage.removeItem("active_queue");
+            console.log("🗑️ Auto-cleared active_queue due to status:", data.status);
+            
+            // Show toast notification
+            if (typeof window !== 'undefined' && window.showToast) {
+              window.showToast(`Your queue session has been ${data.status === "completed" || data.status === "SERVED" ? 'completed' : 'called'}!`, 'success');
+            }
+          }
+        } catch (error) {
+          console.error("Error updating active_queue:", error);
+        }
+      }
       
       // Check for queue changes and send notifications
       if (previousPeopleAhead.current !== null && previousPeopleAhead.current !== data.people_ahead) {

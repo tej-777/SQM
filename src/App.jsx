@@ -7,10 +7,12 @@ import QueueStatus from './pages/queue-status'
 import StaffLogin from './pages/staff-login'
 import StaffDashboard from './pages/staff-dashboard'
 import HospitalRegistration from './pages/hospital-registration'
+import FloatingQueueWidget from './components/FloatingQueueWidget'
 
 function App() {
   return (
     <Router>
+      <FloatingQueueWidget />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/medical-problem" element={<MedicalProblem />} />
