@@ -150,6 +150,20 @@ const QueueStatus = () => {
       const apiUrl = `${API_BASE_URL}/queue/patient/${appointmentId}`;
       console.log("🔍 DEBUG: Fetching queue status from:", apiUrl);
       
+      // First, let's check if there are any appointments at all
+      try {
+        const debugResponse = await fetch(`${API_BASE_URL}/appointments/`);
+        if (debugResponse.ok) {
+          const appointments = await debugResponse.json();
+          console.log("🔍 DEBUG: All appointments in database:", appointments);
+          console.log("🔍 DEBUG: Looking for appointment ID:", appointmentId);
+          const found = appointments.find(apt => apt.id === appointmentId);
+          console.log("🔍 DEBUG: Appointment found:", found);
+        }
+      } catch (debugErr) {
+        console.log("🔍 DEBUG: Could not fetch all appointments:", debugErr.message);
+      }
+      
       const response = await fetch(apiUrl);
       
       if (!response.ok) {

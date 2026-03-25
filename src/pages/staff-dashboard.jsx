@@ -9,7 +9,17 @@ import { staffApi } from '../services/api';
 
 const StaffDashboard = () => {
   const navigate = useNavigate();
-  const { token, login, logout, isAuthenticated, isStaff } = useAuth();
+  const { token, login, logout, isAuthenticated } = useAuth();
+  
+  // Check authentication immediately from localStorage
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    if (!storedToken) {
+      navigate('/staff-login');
+      return;
+    }
+    // proceed normally - token exists
+  }, []);
   
   // Loading state
   const [loading, setLoading] = useState(false);
@@ -71,7 +81,8 @@ const StaffDashboard = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem("token");
-      console.log("Token in localStorage:", localStorage.getItem("token"));
+      console.log("🔍 Fetching staff profile with token:", token ? "exists" : "missing");
+      
       const response = await fetch(`${API_BASE_URL}/auth/me`, {
         method: "GET",
         headers: {
@@ -82,7 +93,7 @@ const StaffDashboard = () => {
       
       if (response.ok) {
         const staffProfile = await response.json();
-        console.log("Staff profile:", staffProfile);
+        console.log("✅ Staff profile fetched successfully:", staffProfile);
         setStaffData(staffProfile);
         
         // Store staff profile data in localStorage for other functions to use
@@ -90,29 +101,18 @@ const StaffDashboard = () => {
         
         // Fetch hospital services after staff data is loaded
         fetchHospitalServices();
-        fetchExistingAvailabilities();
+        // Note: fetchExistingAvailabilities will be called by the useEffect when staffData changes
+      } else if (response.status === 401) {
+        console.error("❌ Token invalid, redirecting to login");
+        logout(); // Clear invalid token
+        navigate('/staff-login');
       } else {
-        console.error("Failed to fetch staff profile");
-        // Fallback to mock data for development - use new hospital with both services
-        const mockData = {
-          id: 'demo_1',
-          hospital_name: 'Hospital',
-          staff_id: 'T',
-          staffId: 'T',
-          district: 'KAKINADA',
-          mandal: 'Kakinada - U',
-          verification_badge: '⭐⭐⭐⭐',
-          verified_at: new Date().toISOString(),
-          hospital_id: '729a6827-d066-4f4c-868a-e991566d1a99' // New hospital with both services
-        };
-        setStaffData(mockData);
-        localStorage.setItem("staff_user", JSON.stringify(mockData));
-        fetchHospitalServices();
-        fetchExistingAvailabilities();
+        console.error("❌ Failed to fetch staff profile:", response.status);
+        // Don't redirect immediately, try to continue with existing data
       }
     } catch (err) {
-      console.error('Error fetching staff profile:', err);
-      // Fallback to mock data for development - use new hospital with both services
+      console.error('❌ Error fetching staff profile:', err);
+      // Don't redirect on network errors, try to continue with mock data
       const mockData = {
         id: 'demo_1',
         hospital_name: 'Hospital',
@@ -127,7 +127,7 @@ const StaffDashboard = () => {
       setStaffData(mockData);
       localStorage.setItem("staff_user", JSON.stringify(mockData));
       fetchHospitalServices();
-      fetchExistingAvailabilities();
+      // Note: fetchExistingAvailabilities will be called by the useEffect when staffData changes
     } finally {
       setLoading(false);
     }
@@ -310,30 +310,38 @@ const StaffDashboard = () => {
 
   // Load services on component mount
   useEffect(() => {
-    // Simple authentication check - only redirect if token is missing
-    const savedToken = localStorage.getItem("token");
-    if (!savedToken) {
-      console.log('No token found, redirecting to login');
-      navigate('/staff-login');
-      return;
-    }
+    console.log('✅ Token found, user is authenticated');
     
     // Fetch hospital services when staff user data is available
     try {
       const staffUserStr = localStorage.getItem("staff_user");
       if (staffUserStr && staffUserStr !== "undefined" && staffUserStr !== "null") {
         const staffUser = JSON.parse(staffUserStr);
-        if (staffUser?.hospital_id && token) {
+        console.log('✅ Staff user data found:', staffUser);
+        setStaffData(staffUser);
+        
+        if (staffUser?.hospital_id) {
           fetchHospitalServices();
-          fetchExistingAvailabilities(); // Add this to load existing availabilities on mount
         }
+      } else {
+        console.log('⚠️ No staff user data found, fetching from API');
+        // Fetch staff profile if not in localStorage
+        fetchStaffProfile();
       }
     } catch (error) {
       console.error('Error parsing staff user data:', error);
-      // If staff user data is invalid, redirect to login
-      navigate('/staff-login');
+      // Don't redirect to login immediately, try to fetch from API first
+      fetchStaffProfile();
     }
-  }, [token]);
+  }, []); // Remove token dependency since we check localStorage directly
+
+  // Fetch existing availabilities when staffData is available
+  useEffect(() => {
+    if (staffData?.hospital_id && token) {
+      console.log('🔍 Fetching existing availabilities for hospital:', staffData.hospital_id);
+      fetchExistingAvailabilities();
+    }
+  }, [staffData, token]); // Depend on staffData and token
 
   const handleLogout = () => {
     // Clear authentication data
@@ -460,7 +468,7 @@ const StaffDashboard = () => {
                   <p className="text-base sm:text-lg font-bold text-sm sm:text-base">
                     {hospitalServices.length > 0 
                       ? hospitalServices.map((service, index) => (
-                          <React.Fragment key={service.id}>
+                          <React.Fragment key={service.id || `service-${index}`}>
                             {service.service_name}
                             {index < hospitalServices.length - 1 && ', '}
                           </React.Fragment>
@@ -564,8 +572,8 @@ const StaffDashboard = () => {
                 >
                   <option value="">Choose a service...</option>
                   {hospitalServices.length > 0 ? (
-                    hospitalServices.map((service) => (
-                      <option key={service.id} value={service.id}>
+                    hospitalServices.map((service, index) => (
+                      <option key={service.id || `option-${index}`} value={service.id}>
                         {service.service_name || 'Unknown Service'}
                       </option>
                     ))
@@ -642,7 +650,7 @@ const StaffDashboard = () => {
               </thead>
               <tbody>
                 {existingAvailabilities.map((availability, index) => (
-                  <tr key={availability.id} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                  <tr key={availability.id || `availability-${index}`} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                     <td className="border border-gray-200 px-4 py-3 text-sm">
                       {availability.service_name || 'Unknown Service'}
                     </td>

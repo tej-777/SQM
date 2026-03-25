@@ -365,7 +365,7 @@ const QueueSection = ({ hospitalServices, appointmentDate }) => {
                   animate={{ opacity: 1, y: 0 }}
                   key={(() => {
                     const calledPatient = queueData?.find(p => p.status === 'CALLED' && p.appointment_date === selectedDate);
-                    return calledPatient ? calledPatient.id : 'none';
+                    return calledPatient ? calledPatient.id : 'no-called-patient';
                   })()}
                 >
                   {(() => {
@@ -378,7 +378,7 @@ const QueueSection = ({ hospitalServices, appointmentDate }) => {
                   animate={{ opacity: 1 }}
                   key={(() => {
                     const calledPatient = queueData?.find(p => p.status === 'CALLED' && p.appointment_date === selectedDate);
-                    return calledPatient ? calledPatient.patient_name : 'none';
+                    return calledPatient ? `${calledPatient.id}-patient` : 'no-patient-name';
                   })()}
                 >
                   {(() => {
