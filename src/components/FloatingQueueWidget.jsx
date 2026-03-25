@@ -83,22 +83,22 @@ const FloatingQueueWidget = () => {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
           whileHover={{ scale: 1.02 }}
-          className="fixed bottom-4 right-4 z-50 cursor-pointer"
+          className="fixed bottom-4 right-4 z-50 cursor-pointer max-w-[90vw]"
           onClick={handleWidgetClick}
           style={{
             boxShadow: '0 8px 32px rgba(0,0,0,0.4)'
           }}
         >
           <div 
-            className="rounded-2xl p-4 min-w-[320px]"
+            className="rounded-2xl p-3 sm:p-4 min-w-[280px] sm:min-w-[320px]"
             style={{
               background: 'linear-gradient(135deg, #1a1a2e, #16213e)'
             }}
           >
             {/* Header with icon */}
-            <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center justify-between mb-2 sm:mb-3">
               <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-3 h-3 sm:w-4 sm:h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
                 <span className="text-xs text-gray-400 font-medium">Queue Status</span>
@@ -116,18 +116,18 @@ const FloatingQueueWidget = () => {
             </div>
             
             {/* Token Number */}
-            <div className="text-center mb-3">
-              <div className={`text-2xl font-bold ${isWaiting ? 'text-green-400' : 'text-blue-400'}`}>
+            <div className="text-center mb-2 sm:mb-3">
+              <div className={`text-xl sm:text-2xl font-bold ${isWaiting ? 'text-green-400' : 'text-blue-400'}`}>
                 {token}
               </div>
             </div>
             
             {/* Patient Info */}
             <div className="space-y-1">
-              <div className="text-sm text-white font-medium">
+              <div className="text-xs sm:text-sm text-white font-medium truncate">
                 {queueData.patientName || queueData.name || 'Patient'}
               </div>
-              <div className="text-xs text-gray-400">
+              <div className="text-xs text-gray-400 truncate">
                 {queueData.hospital} • {queueData.service}
               </div>
               
@@ -170,20 +170,20 @@ const FloatingQueueWidget = () => {
             onClick={handleRestore}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            className="rounded-2xl p-3 shadow-lg border border-white/20"
+            className="rounded-2xl p-2 sm:p-3 shadow-lg border border-white/20"
             style={{
               background: 'linear-gradient(135deg, #1a1a2e, #16213e)',
               boxShadow: '0 8px 32px rgba(0,0,0,0.4)'
             }}
           >
-            <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
             </svg>
             {(isWaiting || queueData.status === "waiting" || queueData.status === "WAITING") && (
               <motion.div
                 animate={{ scale: [1, 1.3, 1] }}
                 transition={{ repeat: Infinity, duration: 2 }}
-                className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white"
+                className="absolute -top-1 -right-1 w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full border-2 border-white"
               />
             )}
           </motion.button>
