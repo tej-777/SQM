@@ -387,7 +387,10 @@ const QueueStatus = () => {
                     <div className="text-sm text-gray-600">Please proceed to the counter</div>
                   </div>
                 ) : (
-                  <div className="grid grid-cols-2 gap-4 w-full">
+                  <div 
+                    className="grid grid-cols-2 gap-4 w-full"
+                    style={{ display: 'grid' }}  // force display in case tailwind class is overridden
+                  >
                     <div className="text-center p-3 sm:p-6">
                       <p className="text-2xl sm:text-4xl font-bold text-yellow-400">{queueData.peopleAhead}</p>
                       <p className="text-xs sm:text-sm text-gray-400 mt-1">People Ahead</p>

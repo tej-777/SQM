@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -7,9 +7,11 @@ const FloatingQueueWidget = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [queueData, setQueueData] = useState(null);
   const [isMinimized, setIsMinimized] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
   
   // Calculate estimated wait time in MM:SS format like queue status page
   const [etaSeconds, setEtaSeconds] = useState(0);
+  const constraintsRef = useRef(null);
 
   useEffect(() => {
     // Check for active queue in localStorage
@@ -67,8 +69,8 @@ const FloatingQueueWidget = () => {
   }, [etaSeconds]);
 
   const handleWidgetClick = (e) => {
-    // Prevent navigation if X button is clicked
-    if (e.target.closest('.dismiss-btn')) return;
+    // Prevent navigation if dragging or X button is clicked
+    if (isDragging || e.target.closest('.dismiss-btn')) return;
     navigate('/queue-status', { 
       state: { 
         appointmentId: queueData.appointmentId,
@@ -106,28 +108,49 @@ const FloatingQueueWidget = () => {
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
   
+  // Format wait from minutes directly
+  const formatWait = (minutes) => {
+    if (!minutes) return '0:00';
+    const m = Math.floor(minutes);
+    const s = Math.round((minutes - m) * 60);
+    return `${m}:${s.toString().padStart(2, '0')}`;
+  };
+  
   const estWaitTime = formatTime(etaSeconds);
 
   return (
-    <AnimatePresence>
-      {!isMinimized ? (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.8, y: 20 }}
-          whileHover={{ scale: 1.02 }}
-          className="fixed cursor-pointer"
-          onClick={handleWidgetClick}
-          style={{
-            position: 'fixed',
-            bottom: '16px',
-            right: '20px',
-            zIndex: 9999,
-            width: '180px',
-            maxWidth: '85vw',
-            boxShadow: '0 8px 32px rgba(0,0,0,0.4)'
-          }}
-        >
+    <>
+      {/* Full screen constraint ref */}
+      <div ref={constraintsRef} className="fixed inset-0 pointer-events-none" style={{zIndex: 9998}} />
+      
+      <AnimatePresence>
+        {!isMinimized ? (
+          <motion.div
+            drag
+            dragMomentum={false}
+            dragConstraints={constraintsRef}
+            dragElastic={0}
+            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.8, y: 20 }}
+            whileHover={{ scale: 1.02 }}
+            whileDrag={{ cursor: 'grabbing', scale: 1.02 }}
+            className="fixed cursor-pointer"
+            onClick={handleWidgetClick}
+            onDragStart={() => setIsDragging(true)}
+            onDragEnd={() => setTimeout(() => setIsDragging(false), 100)}
+            style={{
+              position: 'fixed',
+              bottom: '16px',
+              right: '20px',
+              zIndex: 9999,
+              width: '180px',
+              maxWidth: '85vw',
+              boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
+              cursor: 'grab',
+              touchAction: 'none'
+            }}
+          >
           <div 
             className="rounded-2xl p-3 sm:p-4 w-full"
             style={{
@@ -171,12 +194,12 @@ const FloatingQueueWidget = () => {
               </div>
               
               {/* Estimated Wait Time */}
-              {(isWaiting || peopleAhead > 0) && (
-                <div className="flex items-center justify-between mt-2 pt-2 border-t border-gray-600">
-                  <span className="text-xs text-gray-400">Est. Wait:</span>
-                  <span className="text-xs sm:text-sm font-bold text-blue-400">{estWaitTime}</span>
-                </div>
-              )}
+              <div className="flex justify-between items-center mt-2">
+                <span className="text-xs text-gray-400">Est. Wait:</span>
+                <span className="text-xs font-bold text-blue-400">
+                  {formatWait(queueData?.estimatedWaitMinutes)}
+                </span>
+              </div>
               
               {/* Status with pulsing dot */}
               <div className="flex items-center gap-2 mt-2">
@@ -207,15 +230,24 @@ const FloatingQueueWidget = () => {
       ) : (
         // Minimized version
         <motion.div
+          drag
+          dragMomentum={false}
+          dragConstraints={constraintsRef}
+          dragElastic={0}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
+          whileDrag={{ cursor: 'grabbing', scale: 1.02 }}
           className="fixed cursor-pointer"
+          onDragStart={() => setIsDragging(true)}
+          onDragEnd={() => setTimeout(() => setIsDragging(false), 100)}
           style={{
             position: 'fixed',
             bottom: '16px',
             right: '20px',
-            zIndex: 9999
+            zIndex: 9999,
+            cursor: 'grab',
+            touchAction: 'none'
           }}
         >
           <motion.button
@@ -225,11 +257,10 @@ const FloatingQueueWidget = () => {
             className="rounded-2xl p-2 sm:p-3 shadow-lg border border-white/20"
             style={{
               background: 'linear-gradient(135deg, #1a1a2e, #16213e)',
-              boxShadow: '0 8px 32px rgba(0,0,0,0.4)'
             }}
           >
             <svg className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
             </svg>
             {(isWaiting || queueData.status === "waiting" || queueData.status === "WAITING") && (
               <motion.div
@@ -242,6 +273,7 @@ const FloatingQueueWidget = () => {
         </motion.div>
       )}
     </AnimatePresence>
+  </>
   );
 };
 
