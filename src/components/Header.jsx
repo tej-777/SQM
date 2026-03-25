@@ -55,9 +55,17 @@ const Header = ({ showNavigation = true, showActions = true, customActions = nul
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
           >
-            <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+            {isMobileMenuOpen ? (
+              // X icon
+              <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              // Hamburger icon
+              <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
           </button>
         )}
 
@@ -93,24 +101,32 @@ const Header = ({ showNavigation = true, showActions = true, customActions = nul
         )}
       </div>
 
+      {/* Mobile Menu Backdrop */}
+      {isMobileMenuOpen && (
+        <div 
+          className="fixed inset-0 z-40 md:hidden" 
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
       {/* Mobile Menu */}
       {isMobileMenuOpen && showNavigation && (
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-lg border border-gray-200 p-4 md:hidden"
+          className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-lg border border-gray-200 p-4 md:hidden z-50"
         >
           <nav className="flex flex-col gap-4 text-sm font-medium text-gray-600">
-            <a href="#Home" className="hover:text-blue-600 transition-colors">
+            <a href="#Home" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-blue-600 transition-colors">
               Home
             </a>
-            <a href="#How-It-Works" className="hover:text-blue-600 transition-colors">
+            <a href="#How-It-Works" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-blue-600 transition-colors">
               How It Works
             </a>
-            <a href="#What-Is-This-For" className="hover:text-blue-600 transition-colors">
+            <a href="#What-Is-This-For" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-blue-600 transition-colors">
               Who is this for?
             </a>
-            <a href="#Footer" className="hover:text-blue-600 transition-colors">
+            <a href="#Footer" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-blue-600 transition-colors">
               About
             </a>
           </nav>
@@ -118,21 +134,21 @@ const Header = ({ showNavigation = true, showActions = true, customActions = nul
             <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-gray-200">
               {isStaffLoggedIn ? (
                 <button
-                  onClick={() => navigate('/staff-dashboard')}
+                  onClick={() => { navigate('/staff-dashboard'); setIsMobileMenuOpen(false); }}
                   className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors text-sm text-center"
                 >
                   Staff Dashboard
                 </button>
               ) : (
                 <button
-                  onClick={() => navigate('/staff-login')}
+                  onClick={() => { navigate('/staff-login'); setIsMobileMenuOpen(false); }}
                   className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors text-sm text-center"
                 >
                   Staff Login
                 </button>
               )}
               <button
-                onClick={() => navigate('/medical-problem')}
+                onClick={() => { navigate('/medical-problem'); setIsMobileMenuOpen(false); }}
                 className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors text-sm text-center"
               >
                 Join Queue

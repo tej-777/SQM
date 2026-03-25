@@ -14,7 +14,7 @@ const Hero = () => {
   };
 
   return (
-    <section id = "Home" className="pt-20 sm:pt-20">
+    <section id = "Home" className="pt-24 sm:pt-20">
     <motion.section 
       className="relative overflow-hidden min-h-screen w-full flex items-center relative z-10 pb-16"
       initial={{ opacity: 0, y: 30 }}
